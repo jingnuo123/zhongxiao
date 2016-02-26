@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link rel="stylesheet" href="themes/68ecshopcom_360buy/css/index.css">
+<link rel="stylesheet" type="text/css" href="themes/68ecshopcom_360buy/css/68ecshop_commin.css" />
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js" ></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-lazyload.js" ></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jump.js"></script>
+<script type="text/javascript">
+$(function(){
+	 $(".brand-wall-content img").each(function(k,img){
+		new JumpObj(img,10);
+	});
+
+  $.post('getURL.php', '', function (data) {
+    if (data.city != 0) {
+      if (window.location.hostname == 'www.mslink.com.cn' || window.location.hostname == 'mslink.com.cn') {
+        if (data.city != 1) {
+          if (window.confirm('是否跳转到' + data.city + '?')) {
+            window.location.href = data.url;
+            $.post('getURL.php', {cityCode: data.cityCode});
+          } else {
+            $.post('getURL.php', {cityCode: 0});
+          }
+        } else {
+          window.location.href = data.url;
+        }
+      }
+    }
+  }, 'json');
+});
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+<script language="javascript">
+function killerrors() { 
+return true; 
+} 
+window.onerror = killerrors; 
+</script>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,index.js'}
+</head>
+<body>
+<div id="site-nav"> <!-- #BeginLibraryItem "/library/page_headerindex.lbi" --><!-- #EndLibraryItem -->
+  <div class="home-focus-layout"> <!-- #BeginLibraryItem "/library/index_ad3.lbi" --><!-- #EndLibraryItem -->
+    <div class="right-sidebar"> <!-- #BeginLibraryItem "/library/order_type.lbi" --><!-- #EndLibraryItem -->
+      <div class="proclamation" style='height:340px'>
+        <ul class="tabs-nav">
+          <!--li class="">
+            <h3>招商入驻</h3>
+          </li-->
+          <li class="tabs-selected">
+            <h3>商城公告</h3>
+          </li>
+        </ul>
+
+        <div class="tabs-panel tabs-panel12">
+         <a href="apply_index.php" title="申请商家入驻；已提交申请，可查看当前审核状态。" class="store-join-btn" target="_blank">&nbsp;</a> 
+         <a href="supplier" target="_blank" class="store-join-help"><i class="icon-cog"></i>登录商家管理中心</a> 
+         </div>
+
+        <!-- TemplateBeginEditable name="首页主广告右侧公告" -->
+	<!-- #BeginLibraryItem "/library/cat_articles.lbi" -->
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> </div>
+    </div>
+  </div>
+  <!-- #BeginLibraryItem "/library/index_ad_group.lbi" --><!-- #EndLibraryItem -->
+  <div class="blank5"></div>
+
+<div id="kuaijiechaxun">
+	<p id="shangbiaochaxun">快捷查询：</p>
+	<a href="http://t.gbicom.cn/vip/?bd?sbzc?cw?sbcx-shangbiaochaxun" target="_blank">商标查询</a>|
+	<a href="http://cpquery.sipo.gov.cn" target="_blank">专利查询</a>|
+	<a href="http://www.ccopyright.com.cn/cpcc/notice/soft/softRegisterNotice.jsp" target="_blank">版权查询</a>|
+	<a href="http://wanwang.aliyun.com/" target="_blank">域名查询</a>|
+	<a href="http://www.sgs.gov.cn/lz/" target="_blank">公司查询</a>|
+	<a href="http://www.chinacourt.org/law.shtml" target="_blank">法律查询</a>|
+	<a href="" target="_blank">企业健康体检</a>|
+	<a href="http://www.chinacourt.org/law.shtml" target="_blank">法律法规</a>|
+	<a href="http://gsxt.saic.gov.cn" target="_blank">企业信用查询</a>
+</div>
+<style>
+	#kuaijiechaxun{
+		position:relative;
+		left:50%;
+		margin-left:-605px;
+		margin-top:35px;
+		margin-bottom:20px;
+		width:1210px;
+		font-size:18px;
+		height:50px;
+		color:black;
+		background-color:rgb(236,219,191);
+    z-index: 9; 
+	}
+	#kuaijiechaxun p{
+		color:red;
+		margin-left: 25px;
+		display: inline;
+	}
+	#kuaijiechaxun p,#kuaijiechaxun a{
+		line-height: 50px;
+		font-size:16px;
+	}
+	#kuaijiechaxun a{
+		margin: 0 10px;
+		color:black;
+		text-decoration:none;
+	}
+	#kuaijiechaxun a:hover{
+		color:red;
+	}
+</style>
+
+<div class="jfocus-trigeminy">
+  <div class="tm-chaoshi-markets">
+    <div class="markets">
+      <p class="row2">
+        <?php
+		 $GLOBALS['smarty']->assign('index_lit_img4',get_advlist('首页幻灯片-小图下1',1));
+		?>
+        <!--{foreach from=$index_lit_img4 item=ad name=index_image}--> 
+        <a href="{$ad.url}" target="_blank" title="{$ad.name}"><img data-original="{$ad.image}"  src="themes/68ecshopcom_360buy/images/loading.gif"  alt="{$ad.name}" /></a> 
+        <!--{/foreach}-->
+        <?php
+		 $GLOBALS['smarty']->assign('index_lit_img5',get_advlist('首页幻灯片-小图下2',1));
+		?>
+        <!--{foreach from=$index_lit_img5 item=ad name=index_image}--> 
+        <a href="{$ad.url}" target="_blank" title="{$ad.name}" class="row2_2"><img data-original="{$ad.image}"  src="themes/68ecshopcom_360buy/images/loading.gif"  alt="{$ad.name}" /></a> 
+        <!--{/foreach}-->
+        <?php
+		 $GLOBALS['smarty']->assign('index_lit_img6',get_advlist('首页幻灯片-小图下3',1));
+		?>
+        <!--{foreach from=$index_lit_img6 item=ad name=index_image}--> 
+        <a href="{$ad.url}" target="_blank" title="{$ad.name}"><img data-original="{$ad.image}"  src="themes/68ecshopcom_360buy/images/loading.gif"  alt="{$ad.name}" /></a> 
+        <!--{/foreach}--> 
+<?php
+		 $GLOBALS['smarty']->assign('index_lit_img7',get_advlist('首页幻灯片-小图下4',1));
+		?>
+        <!--{foreach from=$index_lit_img7 item=ad name=index_image}--> 
+        <a href="{$ad.url}" target="_blank" title="{$ad.name}"><img data-original="{$ad.image}"  src="themes/68ecshopcom_360buy/images/loading.gif"  alt="{$ad.name}" /></a> 
+        <!--{/foreach}--> 
+	 
+      
+    </div>
+  </div>
+</div>
+
+<div class="tabs-panel sale-goods-list  litong">
+    <h2>热卖服务</h2>
+        <ul>
+          <!--{foreach from=$hot_goods item=goods name=index_goods}--> 
+          <!--{if $smarty.foreach.index_goods.iteration < 6}-->
+          <li>
+            <dl>
+              <dt class="goods-name"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a> </dt>
+              <dd class="goods-thumb"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}"> <img src="{$goods.thumb}" alt="{$goods.name|escape:html}"> </a> </dd>
+              <dd class="goods-price">商城价： <em> 
+                <!-- {if $goods.promote_price neq ""} --> 
+                {$goods.promote_price} 
+                <!-- {else}--> 
+                {$goods.shop_price} 
+                <!--{/if}--> 
+                </em> </dd>
+            </dl>
+          </li>
+          <!--{/if}--> 
+          <!--{/foreach}-->
+        </ul>
+      </div>
+
+
+  <div class="blank5"></div>
+  <div class="home-sale-layout wrapper">
+    <div class="left-layout"> <!-- #BeginLibraryItem "/library/stores_tab.lbi" --><!-- #EndLibraryItem -->
+      <div class="tabs-panel sale-goods-list tabs-hide">
+        <ul>
+          <!--{foreach from=$promotion_goods item=goods name=index_goods}--> 
+          <!--{if $smarty.foreach.index_goods.iteration < 6}-->
+          <li>
+            <dl>
+              <dt class="goods-name"> <a target="_blank" href="pro_goods.php?id={$goods.id}" title="{$goods.goods_style_name|escape:html}">{$goods.short_style_name}</a> </dt>
+              <dd class="goods-thumb"> <a target="_blank" href="pro_goods.php?id={$goods.id}" title="{$goods.goods_style_name|escape:html}"> <img src="{$goods.thumb}" alt="{$goods.goods_style_name|escape:html}"> </a> </dd>
+              <dd class="goods-price">商城价： <em> 
+                <!-- {if $goods.promote_price neq ""} --> 
+                {$goods.promote_price} 
+                <!-- {else}--> 
+                {$goods.shop_price} 
+                <!--{/if}--> 
+                </em> </dd>
+            </dl>
+          </li>
+          <!--{/if}--> 
+          <!--{/foreach}-->
+        </ul>
+      </div>
+      <div class="tabs-panel sale-goods-list tabs-hide">
+        <ul>
+          <!-- {foreach name=index_goods from=$top_goods item=goods}--> 
+          <!--{if $smarty.foreach.index_goods.iteration < 6}-->
+          <li>
+            <dl>
+              <dt class="goods-name"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a> </dt>
+              <dd class="goods-thumb"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}"> <img src="{$goods.thumb}" alt="{$goods.name|escape:html}"> </a> </dd>
+              <dd class="goods-price">商城价：<em>{$goods.price}</em></dd>
+            </dl>
+          </li>
+          <!--{/if}--> 
+          <!--{/foreach}-->
+        </ul>
+      </div>
+      <div class="tabs-panel sale-goods-list tabs-hide">
+        <ul>
+          <!--{foreach from=$hot_goods item=goods name=index_goods}--> 
+          <!--{if $smarty.foreach.index_goods.iteration < 6}-->
+          <li>
+            <dl>
+              <dt class="goods-name"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a> </dt>
+              <dd class="goods-thumb"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}"> <img src="{$goods.thumb}" alt="{$goods.name|escape:html}"> </a> </dd>
+              <dd class="goods-price">商城价： <em> 
+                <!-- {if $goods.promote_price neq ""} --> 
+                {$goods.promote_price} 
+                <!-- {else}--> 
+                {$goods.shop_price} 
+                <!--{/if}--> 
+                </em> </dd>
+            </dl>
+          </li>
+          <!--{/if}--> 
+          <!--{/foreach}-->
+        </ul>
+      </div>
+      <div class="tabs-panel sale-goods-list tabs-hide">
+        <ul>
+          <!--{foreach from=$best_goods item=goods name=index_goods}--> 
+          <!--{if $smarty.foreach.index_goods.iteration < 6}-->
+          <li>
+            <dl>
+              <dt class="goods-name"><a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a></dt>
+              <dd class="goods-thumb"> <a target="_blank" href="{$goods.url}"> <img src="{$goods.thumb}"  alt="{$goods.name|escape:html}"> </a></dd>
+              <dd class="goods-price">商城价：<em> <!-- {if $goods.promote_price neq ""} --> 
+                {$goods.promote_price} 
+                <!-- {else}--> 
+                {$goods.shop_price} 
+                <!--{/if}--></em></dd>
+            </dl>
+          </li>
+          <!--{/if}--> 
+          <!--{/foreach}-->
+        </ul>
+      </div>
+      <div class="tabs-panel sale-goods-list">
+        <ul>
+          <!--{foreach from=$new_goods item=goods name=index_goods}--> 
+          <!--{if $smarty.foreach.index_goods.iteration < 6}-->
+          <li>
+            <dl>
+              <dt class="goods-name"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a> </dt>
+              <dd class="goods-thumb"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}"> <img data-original="{$goods.thumb}" src="themes/68ecshopcom_360buy/images/loading.gif" alt="{$goods.name|escape:html}"> </a> </dd>
+              <dd class="goods-price">商城价： <em> 
+                <!-- {if $goods.promote_price neq ""} --> 
+                {$goods.promote_price} 
+                <!-- {else}--> 
+                {$goods.shop_price} 
+                <!--{/if}--> 
+                </em> </dd>
+            </dl>
+          </li>
+          <!--{/if}--> 
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+    <div class="right-sidebar">
+      <div class="title">
+        <h3>限时折扣</h3>
+      </div>
+      <div id="saleDiscount" class="sale-discount">
+        <ul>
+          <!--{foreach from=$promotion_goods item=goods name=index_goods key=key}--> 
+          {if $smarty.foreach.index_goods.iteration > 5 and $smarty.foreach.index_goods.iteration < 10}
+          <li>
+            <dl>
+              <dt class="goods-name">{$goods.short_style_name}</dt>
+              <dd class="goods-thumb"> <a href="pro_goods.php?id={$goods.id}"  title="{$goods.name|escape:html}"> <img data-original="{$goods.thumb}" src="themes/68ecshopcom_360buy/images/loading.gif" alt="{$goods.name|escape:html}"> </a> </dd>
+              <dd class="goods-price"> 
+                <!-- {if $goods.promote_price neq ""} --> 
+                {$goods.promote_price} 
+                <!-- {else}--> 
+                {$goods.shop_price} 
+                <!--{/if}--> 
+                <span class="original">{$goods.market_price}</span> </dd>
+              <dd class="goods-price-discount"><em>{$goods.zhekou}</em></dd>
+              <dd class="time-remain" count_down="{$goods.lefttime}"><i></i><span id="leftTime{$key}"><em time_id="d"></em>天<em time_id="h"></em>小时 <em time_id="m"></em>分<em time_id="s"></em>秒 </span></dd>
+              <dd class="goods-buy-btn"></dd>
+            </dl>
+          </li>
+          <script>
+
+Tday[{$key}] = new Date("{$goods.gmt_end_time}");
+
+window.setInterval(function()     
+
+{clock({$key});}, 1000);     
+
+</script> 
+          <!-- {/if} --> 
+          <!--{/foreach}-->
+        </ul>
+        <div class="pagination"><span style="opacity: 0.4;"></span><span style="opacity: 0.4;"></span><span style="opacity: 0.4;"></span><span style="opacity: 1;"></span></div>
+        <div class="arrow pre" style="opacity: 0;"></div>
+        <div class="arrow next" style="opacity: 0;"></div>
+      </div>
+    </div>
+  </div>
+  <!-- 店铺下切换 End-->
+  <div class="blank5"></div>
+  <!--StandardLayout Begin--> 
+  <!-- TemplateBeginEditable name="商品分类楼层1" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+
+
+
+
+
+<?php
+$GLOBALS['smarty']->assign('cat_recommend_type',get_cat_recommend_type($GLOBALS['smarty']->_var['goods_cat']['id']));
+
+?>
+<div class="w">
+  <div id="f0" class="home-standard-layout tm-chaoshi-floorlayout <!-- {if $goods_cat.id eq 3} -->style-one<!-- {elseif $goods_cat.id eq 6} --> style-two<!-- {elseif $goods_cat.id eq 8} -->style-three<!-- {elseif $goods_cat.id eq 11} -->style-four<!-- {elseif $goods_cat.id eq 2}-->style-five<!-- {elseif $goods_cat.id eq 337}-->style-six<!-- {elseif $goods_cat.id eq 7}-->style-seven<!-- {elseif $goods_cat.id eq 5}-->style-eight<!-- {/if} -->">
+    <?php
+	 $GLOBALS['smarty']->assign('index_image3',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'通栏广告', 1));
+	 ?>
+        {foreach from=$index_image3 item=ad name=index_image} 
+        <a href="{$ad.url}" class="j_ItemInfo_tong"> 
+        	<img data-original="{$ad.image}" src="themes/68ecshopcom_360buy/images/loading.gif" alt="" height="100" width="1210"> 
+        </a> 
+        {/foreach}
+    <div class="m-floor">
+      <div class="header left_floor">
+        <h2>{$goods_cat.name|escape:html}</h2>
+        <div class="recommend">
+          <div class="words">
+            <?php
+            $ii = 0;
+			$GLOBALS['smarty']->assign('child_cat',get_hot_cat_tree($GLOBALS['smarty']->_var['goods_cat']['id'], 3));
+	    ?>
+            <!--{foreach from=$child_cat item=cat name=name1}-->         
+            <!--{foreach from=$cat.child item=cat_child name=name}--> 
+             <?php
+	        $ii = $ii + 1;
+			$GLOBALS['smarty']->assign('ii', $ii);
+	?>   
+    		<!--{if  $ii < 10 }-->
+            	<a href="{$cat_child.url}"><b>{$cat_child.name|escape:html}</b></a> 
+            <!-- {/if} -->
+            <!--{/foreach}--> 
+            <!--{/foreach}--> 
+          </div>
+          <?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-左侧图片', 1));
+	 ?>
+          <!-- {if $index_image} --> 
+          {foreach from=$index_image item=ad name=index_image} <a href="{$ad.url}" target="_blank" class="banner" > <img class="jn_words" data-original="{$ad.image}" src="themes/68ecshopcom_360buy/images/loading.gif" height="556" width="240"/> </a> {/foreach} 
+          <!-- {/if} --> 
+        </div>
+      </div>
+
+</div>
+
+
+
+
+<style>
+#f0 a img{
+	height:556px !important;
+}
+</style>
+      <div class="content mid_floor" style="border-bottom:1px solid #e7e7e7;">
+        <div class="goods">
+          <div class="middle-layout">
+            <ul class="tabs-nav">
+              <li class="tabs-selected"><i class="arrow"></i>
+                <h3>精挑细选</h3>
+              </li>
+              <?php
+	 
+			$GLOBALS['smarty']->assign('child_cat',get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id'], 3));
+	?>
+              <!--{foreach from=$child_cat item=cat_item name=child_cat}-->
+
+              <li class=""><i class="arrow"></i>
+                <h3>{$cat_item.name|escape:html}</h3>
+           <div class="tabs-panel list">
+              <?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['goods_cat']['id']), 8));
+
+		?>
+              <!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+              <div cla% ="j_ItemInfo" id="li_{$goods.id}" {if $smarty.foreach.cat_item_goods.iteration % 3 ==0 }style="border:none"{/if}>
+                <div class="wrap"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}"><img data-original="{$goods.thumb}" src="themes/68ecshopcom_360buy/images/loading.gif" alt="{$goods.name|escape:html}" height="160" width="160" class="pic_img_{$goods.id}"> </a>
+                  <h3>{$goods.brief}</h3>
+                  <p class="title"><a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+                  <p class="o-price">{$goods.market_price}</p>
+                  <p class="price"><span class="j_CurPrice"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></p>
+                  <a class="j_AddCart" onclick="addToCart({$goods.id})" title="加入购物车"></a> <i class="product-mask"></i> </div>
+              </div>
+              <!--{/foreach}--> 
+            </div>    </li>
+              <!--{/foreach}-->
+            </ul>
+
+
+           
+
+         
+            <!--{foreach from=$child_cat item=cat_item name=child_cat}-->
+            <?php
+	
+			$GLOBALS['smarty']->assign('child_cat_index', $child_cat_index);
+	?>
+            <div class="tabs-panel list tabs-hide">
+              <ul>
+                <?php
+		 $GLOBALS['smarty']->assign('new_goods', get_cat_recommend_goods('new', get_children($GLOBALS['smarty']->_var['cat_item']['id']), 8));
+
+		?>
+                <!--{foreach from=$new_goods item=goods name=goods}-->
+                <div class="j_ItemInfo" {if $smarty.foreach.goods.iteration % 3 == 0}style="border:none"{/if}>
+                  <div class="wrap"> <a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" height="160" width="160"></a>
+                    <h3>{$goods.brief}</h3>
+                    <p class="title"><a target="_blank" href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+                    <p class="o-price">{$goods.market_price}</p>
+                    <p class="price"><span class="j_CurPrice"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></p>
+                    <a class="j_AddCart" onclick="addToCart({$goods.id})" title="加入购物车"></a> </div>
+                </div>
+                <!--{/foreach}-->
+              </ul>
+            </div>
+            <!--{/foreach}--> 
+          </div>
+        </div>
+  <div class="promo">
+        <?php
+		 $GLOBALS['smarty']->assign('index_image1',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'右侧广告1', 1));
+	 ?>
+        {foreach from=$index_image1 item=ad name=index_image} <a  href="{$ad.url}" class="j_ItemInfo"> <img data-original="{$ad.image}" src="themes/68ecshopcom_360buy/images/loading.gif" alt="" height="280" width="170"> </a> {/foreach}
+        <?php
+		 $GLOBALS['smarty']->assign('index_image2',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'右侧广告2', 1));
+	 ?>
+        {foreach from=$index_image2 item=ad name=index_image} <a  href="{$ad.url}" class="j_ItemInfo"> <img data-original="{$ad.image}" src="themes/68ecshopcom_360buy/images/loading.gif" alt="" height="277" width="170"> </a> {/foreach} </div>
+    </div>    </div>
+      
+  </div>
+</div>
+<div class="blank5"></div>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> <!-- TemplateBeginEditable name="商品分类楼层2" -->
+<!-- TemplateEndEditable --> <!-- TemplateBeginEditable name="商品分类楼层3" -->
+<!-- TemplateEndEditable --> <!-- TemplateBeginEditable name="商品分类楼层4" -->
+<!-- TemplateEndEditable --> <!-- TemplateBeginEditable name="商品分类楼层5" -->
+<!-- TemplateEndEditable --> <!-- TemplateBeginEditable name="商品分类楼层6" -->
+<!-- TemplateEndEditable --> <!-- TemplateBeginEditable name="商品分类楼层7" -->
+<!-- TemplateEndEditable --> <!-- TemplateBeginEditable name="商品分类楼层8" -->
+<!-- TemplateEndEditable --> 
+  <!--StandardLayout End--> 
+</div>
+<div class="clearbox"></div>
+<div class="blank"></div>
+<div class="wrapper">
+  <div class="mt10"> <!-- TemplateBeginEditable name="首页底部横幅广告" -->
+<!-- TemplateEndEditable --> </div>
+</div>
+<div class="blank"></div>
+<div class="blank5"></div>
+<!-- #BeginLibraryItem "/library/page_footerindex.lbi" --><!-- #EndLibraryItem -->
+
+
+<!-- #EndLibraryItem -->
+<div class="as-shelter"></div>
+<div class="as-total-container">
+  <div id="J_AttachedSearchContainer" class="attached-search-container">
+    <div class="fp-iconfont"></div>
+    <div class="mall-search" id="mallSearch" style=" margin-right:210px; margin-top:-45px;">
+      <form class="mallSearch-form" method="get" name="searchForm" action="search.php" onSubmit="return checkSearchForm()">
+        <fieldset>
+          <legend>搜索</legend>
+          <div class="mallSearch-input clearfix">
+            <div id="s-combobox-135" class="s-combobox">
+              <div class="s-combobox-input-wrap">
+                <input aria-haspopup="true" role="combobox" class="s-combobox-input" name="keywords" id="keyword" tabindex="9" accesskey="s" onkeyup="STip(this.value, event);" autocomplete="off"  value="{if $search_keywords}{$search_keywords|escape}{else}请输入关键词{/if}" onFocus="this.value=''" type="text">
+              </div>
+            </div>
+            <input type="submit" value="搜索" class="button"  >
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="fp-tel"><b>联系热线：400-078-5268</b></div>
+  </div>
+</div>
+
+
+<style>.suspension { position: fixed; z-index: 55; right: 10px; bottom: 10px; width: 80px; height: 204px; }.suspension-box { position: relative; float: right; }.suspension-box a.a { display: block; width: 50px; height: 50px; background-color: #B5B5B5; margin-bottom: 1px; cursor: pointer; }.suspension-box a.back_top { background-color: #797979; }.suspension-box a.qq:hover,.suspension-box a.tel:hover,.suspension-box a.code:hover { opacity: 0.8; filter: alpha(opacity=80); }.suspension-box a.back_top:hover { background-color: #FC7878; }.suspension-box a i { display: block; float: left; width: 25px; margin-left: 15px; margin-top: 15px; background-image: url(http://www.ecmoban.com/content/themes/ecmoban2014/images/suspension-bg.png); background-repeat: no-repeat; text-indent: -9999px; }.suspension-box a.qq i { background-position: 0 0; }.suspension-box a.tel i { background-position: -25px 0; }.suspension-box a.code i { background-position: 0 -25px; }.suspension-box a.back_top i { background-position: -28px -25px; }.suspension-box div.code { position: absolute; left: -200px; *left: -207px; top: 0; display: none; width: 178px; height: 198px; padding-left: 10px; padding-top: 10px; background-color: #fff; border: 1px solid #D9D9D9; }.suspension-box div.code p { width: 155px; margin-top: 5px; text-align: center; }.suspension-box div.code i { width: 8px; height: 15px; position: absolute; top: 118px; right: -8px; background-image: url(http://www.ecmoban.com/content/themes/ecmoban2014/images/trangle-right-suspension.png); background-repeat: no-repeat; }.suspension-box div.tencent { position: absolute; left: -187px; top: 0px; width: 177px; height: 85px; display:none; background-color: #fff; border: 1px solid #D7D7D7; }.suspension-box div.tencent p.tencent-p { width: 75px; float: right; margin-right: 18px; margin-top: 18px; font-size: 16px; color: #333; }.suspension-box div.tencent i.tencent-i { width: 8px; height: 15px; position: absolute; top: 10px; right: -8px; text-indent: -9999px; background-image: url(http://www.ecmoban.com/content/themes/ecmoban2014/images/trangle-right-suspension.png); background-repeat: no-repeat; }.suspension-box div.tencent b.tencent-b { position: absolute; left: 10px; top: 10px; width: 62px; height: 64px; background-image: url(http://www.ecmoban.com/content/themes/ecmoban2014/images/circle-tencent.png); background-repeat: no-repeat; }.suspension-box div.tencent span.tencent-span { position: absolute; left: 8px; top: 7px; border-radius: 22px; width: 45px; height: 48px; text-align: center; z-index: 99; overflow: hidden; }.suspension-box div.tencent .tencent-qq {position: absolute; left: 3px;top:0px; height: 45px; width: 39px; }.suspension-box div.tel { position: absolute; left: -187px; top: 51px; display: none; width: 177px; height: 85px; background-color: #fff; border: 1px solid #D7D7D7; }.suspension-box div.tel i { width: 8px; height: 15px; position: absolute; top: 20px; right: -8px; background-image: url(http://www.ecmoban.com/content/themes/ecmoban2014/images/trangle-right-suspension.png); background-repeat: no-repeat; }.suspension-box div.tel strong { display: block; margin-left: 17px; margin-top: 16px; font-size: 16px; font-weight: normal; }.suspension-box div.tel p { margin-left: 17px; font-size: 23px; font-family: arial; color: #FD696D; }.icon { margin-top:-5px; }.nav a.cart-title-name { color: #000; text-decoration: none; line-height: normal; }.nav a.cart-title-name:hover { color: #ef353d; text-decoration: underline; line-height: normal; }.nav a font { padding: 8px 15px; background:#fd7878; border-radius: 5px; }.nav a font:hover { padding: 8px 15px; background:#ea5050; border-radius: 5px; }</style>
+<div class="suspension"><div class="suspension-box"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDAwNzE2N18zNzUzN184MDAwMDcxNjdfMl8;" target="_blank" class="qq j-icon a"><i>qq</i></a><a class="a tel j-icon"><i>tel</i></a><a class="code j-icon a"><i>code</i></a><a class="back_top j-back-top a" style="display: none;"><i>back_top</i></a><div class="tencent j-tencent j-box" style="display: none;"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDAwNzE2N18zNzUzN184MDAwMDcxNjdfMl8" target="_blank"><i class="tencent-i">tencent</i><b class="tencent-b"><span class="tencent-span"><img class="tencent-qq" src="http://www.ecmoban.com/content/themes/ecmoban2014/images/qq-tencent.png" alt=""></span></b><p class="tencent-p">在线客服<br>点击交谈</p></a></div><div class="tel j-box" style="display: none;"><strong>服务热线：</strong><p>4001-021-758</p><i></i></div><div class="code j-box" style="display: none;"><img src="http://www.ecmoban.com/content/themes/ecmoban2014/images/suspension-code.png" alt=""><p>扫一扫，微信关注模板堂</p><i></i></div></div></div>
+
+
+</body>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/home_index.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+var headHeight=350;  //这个高度其实有更好的办法的。使用者根据自己的需要可以手工调整。
+ 
+var nav=$(".as-shelter"); 
+var nav2=$(".as-total-container");       //要悬浮的容器的id
+$(window).scroll(function(){ 
+ 
+if($(this).scrollTop()>headHeight){ 
+nav.addClass("show");   //悬浮的样式
+nav2.addClass("show");
+} 
+else{ 
+nav.removeClass("show"); 
+nav2.removeClass("show"); 
+} 
+}) 
+})
+
+var goods_id = {$goods_id};
+var goodsattr_style = {$cfg.goodsattr_style|default:1};
+var gmt_end_time = {$promote_end_time|default:0};
+{foreach from=$lang.goods_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var goodsId = {$goods_id};
+var now_time = {$now_time};
+
+<!-- {literal} -->
+onload = function(){
+  changePrice();
+  fixpng();
+  ShowMyComments({$goods.goods_id},0,1);
+  try { onload_leftTime(); }
+  catch (e) {}
+}
+<!-- {/literal} -->
+</script>
+</html>
