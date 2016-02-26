@@ -1,0 +1,44 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="brand-bar-pop">
+  <dl id="zy_shop" style="border-bottom:1px solid #ddd; text-align:center;padding-top:13px;padding-bottom:12px;*padding-top:12px;*padding-bottom:9px;">
+    <dt class="shop_title">卖家：<span style="color:#333333">平台自营</span></dt>
+    <div class="ghs_clear"></div>
+    <dd></dd>
+  </dl>
+  <dl id="hotline" style="padding-top:5px;">
+    <dt >商家名称&nbsp;&nbsp;&nbsp;&nbsp;{$shop_name}</dt>
+    <dd > </dd>
+    <div class="ghs_clear"></div>
+  </dl>
+  
+  
+  
+  <!-- 客服电话{if $service_phone} -->
+  <dl id="hotline">
+    <dt>咨询电话&nbsp;&nbsp;&nbsp;&nbsp;</dt>
+    <dd>{$service_phone}</dd>
+    <dd class="ghs_clear"></dd>
+  </dl>
+  
+  <!-- 结束客服电话{/if} -->
+  <dl id="hotline">
+    <dt>所在地区：</dt>
+    <dd>{$shop_address}</dd>
+    <dd class="ghs_clear"></dd>
+  </dl>
+  <dl id="hotline">
+  <dt>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
+    <dd>&nbsp;&nbsp;&nbsp;&nbsp;</dd>
+    <dd class="ghs_clear"></dd>
+    </dl><dl id="hotline">
+  <dt>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
+    <dd>&nbsp;&nbsp;&nbsp;&nbsp;</dd>
+    <dd class="ghs_clear"></dd>
+    </dl>
+  <div id="enter-shop"> 
+      <div id="attention-shop" style="border-top: 1px dotted #C6C6C6;margin: 0px 10px;">
+    	<p>微信二维码</p>
+	<img src="erweima_supplier.php?sid=0" width="120" height="120" />
+    </div>
+ </div>
+</div>
