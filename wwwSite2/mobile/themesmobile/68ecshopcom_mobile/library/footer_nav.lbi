@@ -1,0 +1,27 @@
+<!--首页底部菜单-->
+<div class="posfixbot">
+  <dl>
+    <dd><a href="index.php" rel="external"><img src="../static/img/home1.png" >
+      <p>首页</p>
+      </a></dd>
+    <dd><a href="catalog.php" rel="external"><img src="../static/img/classify1.png">
+      <p>分类</p>
+      </a></dd>
+    <dd>
+    	<a href="flow.php" class="por" rel="external"><img src="../static/img/shop_cart1.png">
+      		<p>购物车</p>
+       </a>
+       <span class="shopcar" id="ECS_CARTINFO">{insert name='cart_info'}</span></dd>
+    <dd><a href="tel:4006635268" rel="external"><img src="../static/img/lianxi.png">
+      <p>联系我</p>
+      </a></dd>
+   </dd>
+    <dd><a href="user.php" rel="external"><img src="../static/img/user1.png">
+      <p>我的</p>
+      </a></dd>
+    <d class="clear">
+    </dd>
+  </dl>
+</div>
+<!--首页底部菜单-->
+<div style="height:50px; line-height:50px;"></div>

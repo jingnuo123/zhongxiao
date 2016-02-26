@@ -1,0 +1,16 @@
+
+{if $goods.goods_id}
+    <div class="pro-inner">
+      <div class="proImg-wrap"> <a href="{$goods.url}"> <img src="{$goods.goods_thumb}" alt="{$goods.name|escape:html}"/> </a> </div>
+      <div class="proInfo-wrap">
+	<div class="proTitle"> <a href="{$goods.url}">{$goods.goods_name}</a> </div>
+	<div class="proSKU"> </div>
+	<div class="proPrice"> <em>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</em> </div>
+       <div class="proSales"> 销量:<em>{$goods.wap_count}</em> </div>
+	  <!--{if $goods.promote_price neq "" } -->
+	<div class="proIcons"><img src="static/img/goods_new.png" /> </div>
+	<!--{/if}-->
+      </div>
+    </div>
+{/if}
+	

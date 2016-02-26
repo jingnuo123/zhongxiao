@@ -1,0 +1,5 @@
+{if $user_info}
+<a style="color:red" href="user.php" >{$user_info.username}</a>&nbsp;-&nbsp;<a href="user.php?act=logout">退出</a>
+{else}
+<a style="color:red" href="user.php" >登录</a>&nbsp;-&nbsp;<a href="user.php?act=register">注册</a>
+{/if}

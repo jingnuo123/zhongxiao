@@ -1,0 +1,43 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javascript">
+
+var url = 'category.php?act=ajax&category={$cat_id}&&display=grid&brand={$smarty.request.brand}&price_min={$smarty.request.price_min}&price_max={$smarty.request.price_max}&filter_attr={$smarty.request.filter_attr}&page=1&sort={$smarty.request.sort}&order={$smarty.request.order}';
+$(function(){
+	$('#J_ItemList').more({'address': url});
+});
+
+$(window).scroll(function () {
+		if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+			$('.get_more').click();
+		}
+	});
+
+
+</script>
+
+<div class="filter" id="J_Filter">
+  <ul class="filter-inner">
+ 	<li {if $pager.sort eq 'goods_id'} class="filter-cur"{/if}><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=<!-- {if $pager.sort == 'goods_id' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list" >上架<i class="<!-- {if $pager.sort == 'goods_id' && $pager.order == 'DESC'} -->f-ico-arrow-u<!-- {else} -->f-ico-arrow-d<!-- {/if} -->"></i></a></li>
+    <li {if $pager.sort eq 'last_update'} class="filter-cur"{/if}><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=last_update&order=<!-- {if $pager.sort == 'last_update' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list" >更新<i class="<!-- {if $pager.sort == 'last_update' && $pager.order == 'DESC'} -->f-ico-arrow-u<!-- {else} -->f-ico-arrow-d<!-- {/if} -->"></i></a></li>
+    <li {if $pager.sort eq 'salenum'} class="filter-cur"{/if}><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=salenum&order=<!-- {if $pager.sort == 'salenum' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list" >销量<i class="<!-- {if $pager.sort == 'salenum' && $pager.order == 'DESC'} -->f-ico-arrow-u<!-- {else} -->f-ico-arrow-d<!-- {/if} -->"></i></a></li>
+    <li {if $pager.sort eq 'shop_price'} class="filter-cur"{/if}><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=<!-- {if $pager.sort == 'shop_price' && $pager.order == 'ASC'} -->DESC<!-- {else} -->ASC<!-- {/if} -->#goods_list">价格<i class="<!-- {if $pager.sort == 'shop_price' && $pager.order == 'ASC'} -->f-ico-arrow-d<!-- {else} -->f-ico-arrow-u<!-- {/if} -->"></i></a></li>
+    <li class="filter-navBtn" ><a class="j_filterBtn disabled" href="javascript:void(0)" id="btn_filter" f="1" >筛选</a></li>
+  </ul>
+</div>
+<div class="filter-placeholder" style="height: 39px; display: none;"></div>
+{if $goods_list}
+<div id="J_ItemList" style="opacity: 1;" class="srp m-animation album">
+	<div class="product single_item info"> 
+		
+	</div>
+	<a href="javascript:;" class="get_more"><img src='static/img/loader.gif'></a>
+</div>
+ {else}
+    <ul class="new-mu_l2w">
+						<div class="new-cp-prom2">
+                <span class="new-logo2"></span>
+                <strong class="new-span-block">抱歉暂时没有相关结果，换个筛选条件试试吧</strong>
+            </div>
+			        </ul>
+{/if}

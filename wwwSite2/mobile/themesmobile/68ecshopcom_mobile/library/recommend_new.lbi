@@ -1,0 +1,53 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $new_goods}
+<span  class="fenlan"><a href="search.php?intro=new">{$lang.new_goods}</a></span>
+	<section class="waterfall">
+               
+               <div class="cssBox">
+                
+              
+                    <div class="box_flex_1 waterfall_left">
+                     {foreach from=$new_goods item=goods name=new_goods}
+                     <!-- {if $smarty.foreach.new_goods.iteration % 2 eq 1} -->
+                    <article class="waterfall_el" style="visibility: visible;">
+                        <a href="{$goods.url}" title="{$goods.name|escape:html}">
+                         <div class="products_kuang">
+                        <img src="{$option.static_path}{$goods.thumb}">
+                        
+                         </div>
+                       <div class="goods_name">
+                     {$goods.name}
+                        </div><div class="products_kuang1"><span class="price_bg"></span><p class="text"><span class="price">{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</span> <span class="text1">{$goods.market_price}</span> 
+                        </p></div>
+                        <div class="products_dmiaoshu"><small>{$goods.sell_count}人已购买</small></div>
+                    </article>
+                     <!-- {/if} -->
+                    {/foreach}
+                    </div>
+                    <div class="box_flex_1 waterfall_right">
+                        {foreach from=$new_goods item=goods name=new_goods}
+                     <!-- {if $smarty.foreach.new_goods.iteration % 2 neq 1} -->
+                    <article class="waterfall_el" style="visibility: visible;">
+                        <a href="{$goods.url}" title="{$goods.name|escape:html}">
+                         <div class="products_kuang">
+                        <img src="{$option.static_path}{$goods.thumb}">
+                        
+                         </div>
+                       <div class="goods_name">
+                     {$goods.name}
+                        </div>
+                        <div class="products_kuang1"><span class="price_bg"></span><p class="text"><span class="price">{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</span> <span class="text1">{$goods.market_price}</span> </p>
+                        <div class="products_dmiaoshu"><small>{$goods.sell_count}人已购买</small></div>
+                    </article>
+                     <!-- {/if} -->
+                    {/foreach}
+                    </div>
+                </div>
+                <a href="search.php?intro=new">
+							<aside class="go_more">
+								<button>
+									查看更多&nbsp;
+									<i></i><i></i>
+								</button> </aside> </a>
+						</section>		
+{/if}

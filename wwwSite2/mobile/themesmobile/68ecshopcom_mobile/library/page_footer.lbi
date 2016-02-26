@@ -1,0 +1,25 @@
+<div id="elem-PublicConfig_showBottom01-001" name="bottom">
+<div class="footer1">
+<div class="in">
+<div class="footSearch">
+<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" class="">
+<input name="keywords" type="text" id="keyword">
+<button type="submit"></button>
+</form>
+</div>
+<a href="index.php" class="homeBtn"><span></span></a>
+<a href="javascript:scroll(0,0)" class="gotop">
+<span></span>
+<p>回顶部</p>
+</a>
+</div>
+<ul class="mf_o2" style="text-align:center">
+<li ><a href="index.php?is_c=1">电脑版</a></li>
+<li ><a href="./">触屏版</a></li>
+<li ><a href="#">安卓端</a></li>
+<li><a href="#">苹果端</a></li>
+
+
+</ul>
+<p class="mf_o4">{$copyright}</p>
+</div></div>
