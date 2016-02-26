@@ -1,0 +1,4 @@
+var Slider=function(a){return new Slider.prototype.init(a);};Slider.prototype={init:function(d){d=$.extend({id:"slider",lPage:"pagenavi",speed:1000,timeout:6000,direction:"left",before:function(f){a[e].className="";
+e=f;a[e].className="active";},after:function(g){var f=$(this.element).find("img").eq(g);if(f.attr("data-src2")){f.attr("src",f.attr("data-src2")).removeAttr("data-src2");
+}}},d);if(!document.getElementById(d.id)){return;}var e=0,b="t"+new Date().getTime();if(d.lPage){var a=document.getElementById(d.lPage).getElementsByTagName("a");
+for(var c=0;c<a.length;c++){(function(){var f=c;a[c].onclick=function(){b.slide(f);return false;};})();}}var b=new TouchSlider(d);}};

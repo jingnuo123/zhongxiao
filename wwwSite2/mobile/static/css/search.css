@@ -1,0 +1,22 @@
+
+#fake-search {
+	padding:0 10px; margin-top:20px; margin-bottom:20px;
+}
+.fakeInput {
+	height:38px;
+	margin:0 auto;
+	background:url(../img/search_mid.png) repeat-x;
+}
+ .fakeInput .search_text { width:80%; height:38px; line-height:38px; color:#999; border:0; margin-left:0px; overflow:hidden; float:left; background:url(../img/search_l.png) no-repeat; text-indent:10px;}
+ .fakeInput .search_submit {
+	width:37px;
+	height:38px;
+	line-height:38px;
+	text-indent:8px;
+	color:#999;
+	border:0;
+	text-align:left;
+	margin:0;
+	padding:0;
+	float:right; background:url(../img/search_r.png) no-repeat;
+}
