@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style> 
+			#slogn{
+				margin-top:100px;
+				text-align: center;
+			}
+			#menu{
+				width:100%;
+/* 				border:#000 solid 1px; */
+				height:50px;
+				text-align: center;
+			}
+			#places{
+				text-align: center;
+			}
+			.c_beichen{
+/* 				border: 1px red solid; */
+				height:50px;
+				width:200px;
+				display: inline-block;
+			}
+			.c_hongqiao{
+				
+/* 				border: 1px blue solid; */
+				height:50px;
+				width:200px;
+				display: inline-block;
+			}
+			#beichen{
+				width: 100%;
+/* 				border:2px #000 solid; */
+			}
+			#hongqiao{
+				width: 100%;
+/* 				border:2px #000 solid; */
+				display: none;
+			}
+		</style>
+</head>
+<body>
+	<div id="slogn">
+			<p>请选择自提点</p>
+		</div>
+		</div>
+		<div id="menu">
+			<div class="c_beichen" onclick="point1()">
+				北辰校区
+			</div>
+			
+			<div class="c_hongqiao" onclick="point2()">
+				红桥校区
+			</div>
+		</div>
+		<div id="places">
+			<div id="beichen">
+				<div class="point">
+					<a href="index.php"><img src="point.png"/></a>
+					<a>教师公寓</a>
+				</div>
+				<div class="point">
+					<a href="index.php"><img src="point.png"/></a>
+					<a>学生公寓</a>
+				</div>
+				<div class="point">
+					<a href="index.php"><img src="point.png"/></a>
+					<a>学院楼</a>
+				</div>
+			</div>
+			<div id="hongqiao">
+				<div class="point">
+					<a><img src="point.png"/></a>
+					<a href="index.php">南院</a>
+				</div>
+				<div class="point">
+					<a href="index.php"><img src="point.png"/></a>
+					<a>东院</a>
+				</div>
+				<div class="point">
+					<a href="index.php"><img src="point.png"/></a>
+					<a>北院</a>
+			</div>
+		</div>
+		<script>
+			function point1(){
+				var beichen =document.getElementById('beichen');
+				beichen.style.display = 'block';
+				var hongqiao =document.getElementById('hongqiao');
+				hongqiao.style.display = 'none';			}
+			function point2(){
+				var beichen =document.getElementById('beichen');
+				beichen.style.display = 'none';
+				var hongqiao =document.getElementById('hongqiao');
+				hongqiao.style.display = 'block';
+			}
+		</script>
+</body>
+</html>
