@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>{$page_title}</title>
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<link rel="shortcut icon" href="static/img/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="static/img/website_icon.png">
+<link rel="stylesheet" href="static/css/ec_detail.css">
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="static/css/common_new.css">
+<script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+<script type="text/javascript" src="static/js/touchslider.dev.js"></script>
+{insert_scripts files='common.js'}
+</head>
+<body >
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<script language="javascript"> 
+<!--
+/*屏蔽所有的js错误*/
+function killerrors() { 
+return true; 
+} 
+window.onerror = killerrors; 
+//-->
+function tiaozhuan()
+{ 
+var thisurl = window.location.href;
+location.href='share_goods.php?content={$goods.goods_style_name}&pics={$goods.goods_img}&gid={$goods.goods_id}&url='+thisurl;
+}
+</script>
+<header class="s-header">
+<nav>
+    <h1>商品详情页</h1>
+    <a href="javascript:history.back(-1)" class="back">返回</a>
+    <label onClick="tiaozhuan()" id="more" class="more">更多</label>
+</nav>
+
+</header>
+<div class="pd_Img">
+ {include file='library/goods_gallery.lbi'}
+</div><a class="m-fav" href="javascript:collect({$goods.goods_id})" style="display: inline; ">点击收藏</a>
+<div class="blank5"></div>
+<form action="javascript:addToCart({$goods.goods_id})" method="post" id="purchase_form" name="ECS_FORMBUY" style="background:#e5e5e5; padding:15px 0px;">
+
+<section class="s-summary">
+  <div class="title">
+    <h1>{$goods.goods_name} <b></b> </h1>
+  </div>
+  <div class="summary">
+    <ul class="m-prices">
+  
+    {if $goods.is_promote and $goods.gmt_end_time}
+      <li class="p-price"> <span class="key">{$lang.promote_price}</span>
+        <div class="value"> <span class="price"><b class="p-price-v">{$goods.promote_price}</b> &nbsp;&nbsp;</span> </div>
+      </li>
+      {else}
+       <li class="p-price"> <span class="key">{$lang.shop_price}</span>
+        <div class="value"> <span class="price"><b class="p-price-v">{$goods.shop_price_formated}</b></span> </div>
+      </li>
+      {/if}
+      {if $cfg.show_marketprice}
+      <li class="o-price"> <span class="key">{$lang.market_price}</span>
+        <div class="value"> <del><span class="o-price-v">{$goods.market_price}</span></del>  </div>
+      </li>
+       {/if}
+       {if $rank_prices}				
+		{foreach from=$rank_prices item=rank_price key=key}
+        <li class="o-price"> 
+         <span class="key">{$rank_price.rank_name}：</span>
+         <div class="value"><b class="p-price-v">{$rank_price.price}</b></div></li>
+     {/foreach}
+    {/if}
+    </ul>
+{if $cfg.show_goodssn}
+<div class="m-sales"> <span class="key">{$lang.goods_sn}</span><div class="value">{$goods.goods_sn}</div></span></div>
+{/if}
+
+{if $goods.goods_brand and $cfg.show_brand}
+<div class="m-sales"> <span class="key">{$lang.goods_brand}</span>
+      <div class="value"><a href="{$goods.goods_brand_url}">{$goods.goods_brand}</a></div>
+    </div>
+{/if}
+{if $cfg.show_goodsweight}
+ <div class="m-sales"> <span class="key">{$lang.goods_weight}</span>
+      <div class="value">{$goods.goods_weight}</div>
+    </div>
+{/if}
+{if $cfg.show_addtime}
+ <div class="m-sales"> 
+      <span class="key">{$lang.add_time}</span>
+      <div class="value">{$goods.add_time}</div>
+    </div>
+{/if}
+{if $option.product_click_count_enabled}
+<div class="m-sales"> 
+      <span class="key">{$lang.goods_click_count}</span>
+      <div class="value">{$goods.click_count}</div>
+    </div>
+{/if}
+{if $goods.give_integral gt 0}
+<div class="m-sales"> 
+      <span class="key">{$lang.goods_give_integral}</span>
+      <div class="value">{$goods.give_integral} {$points_name}</div>
+    </div>
+{/if}
+{if $cfg.use_integral00 and $goods.integral}
+ <div class="m-sales"> 
+      <span class="key">{$lang.goods_integral}</span>
+      <div class="value">{$goods.integral} {$points_name}</div>
+    </div>
+{/if}
+{if $goods.bonus_money}
+<div class="m-sales"> 
+      <span class="key">{$lang.goods_bonus}</span>
+      <div class="value">{$goods.bonus_money}</div>
+    </div>
+{/if}
+{insert_scripts files='lefttime.js'}
+    {if $goods.is_promote and $goods.gmt_end_time}
+<div class="m-sales" >
+<div class="timeBox"><em class="big_clock"></em><p class="countdown" >剩余<span id="leftTime">{$lang.please_waiting}</span></p></div>
+</div>
+{/if}
+<div class="m-sales" style="border:none;"><span class="key">销售数量：</span>
+<div class="value">{$order_num}</div>
+</div>
+
+  </div>
+</section>
+<section class="s-buy open ui-section-box" id="search_ka">
+  <label class="info ui-more" onClick="click_search()">
+  <div class="notice"> 请选择<span class="property">{foreach from=$specification item=spec key=spec_key name=specification}{$spec.name}{if !$smarty.foreach.specification.last}&nbsp;/&nbsp;{/if}{/foreach}</span> </div>
+  
+  </label>
+    <div class="fields">
+      <div class="quantity" >
+      <ul class="urlzongjia clearfix">
+          <li>商品总价：<font id="ECS_GOODS_AMOUNT" class="price">￥109.00元</font></li>
+          <li>商品库存： {$goods.goods_number} </li>
+     </ul>
+      </div>
+      <div class="ui-sku">
+ {if $specification}                
+    {foreach from=$specification item=spec key=spec_key name=specification}
+        <div class="ui-sku-prop" {if $spec_key eq $attr_same.attr_id}style="display:none;"{/if}>
+          <h2>{$spec.name}</h2>
+          <div class="items">
+          {if $spec.attr_type eq 1}
+          {foreach from=$spec.values item=value key=key}
+          <a {if $key eq 0}class="hover"{/if} href="javascript:;" name="{$value.id}" onclick="changeAtt(this);" for="spec_value_{$value.id}" title="{if $value.price gt 0}{$lang.plus}{$value.format_price|abs}{elseif $value.price lt 0}{$lang.minus}{$value.format_price|abs}{/if}"><input style="display:none" id="spec_value_{$value.id}" type="radio" name="spec_{$spec_key}" value="{$value.id}" {if $key eq 0}checked{/if} />
+          {$value.label}  {if $value.price gt 0}<font>+ {$value.format_price|abs}</font>{elseif $value.price lt 0}<font>- {$value.format_price|abs}</font>{/if}
+          
+          </a>
+           {/foreach}
+           {else}
+            {foreach from=$spec.values item=value key=key}
+          <a {if $key eq 0}class="hover"{/if} href="javascript:;" name="{$value.id}" onclick="changeAtt1(this)" for="spec_value_{$value.id}" title="{if $value.price gt 0}{$lang.plus}{$value.format_price|abs}{elseif $value.price lt 0}{$lang.minus}{$value.format_price|abs}{/if}"><input type="checkbox" style=" display:none" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" {if $key eq 0}checked{/if}/>
+							{$value.label} {if $value.price gt 0}<font>+ {$value.format_price|abs}</font>{elseif $value.price lt 0}<font>- {$value.format_price|abs}</font>{/if}
+           </a>
+           {/foreach}
+            {/if}
+          </div>
+        </div>
+        {/foreach}
+        {/if}
+      </div>
+              <script type="text/jscript">
+			  function click_search (){
+				  var search_ka = document.getElementById("search_ka");
+				  if (search_ka.className == "s-buy open ui-section-box"){
+					  search_ka.className = "s-buy ui-section-box";
+					  }else {
+						  search_ka.className = "s-buy open ui-section-box";
+						  }
+				  }
+function changeAtt(t) {
+t.lastChild.checked='checked';
+for (var i = 0; i<t.parentNode.childNodes.length;i++) {
+        if (t.parentNode.childNodes[i].className == 'hover') {
+            t.parentNode.childNodes[i].className = '';
+			t.childNodes[0].checked="checked";
+		}
+    }
+t.className = "hover";
+changePrice();
+}
+function changeAtt1(t) {
+t.lastChild.checked='checked';
+for (var i = 0; i<t.parentNode.childNodes.length;i++) {
+        if (t.className == 'hover') {
+            t.className = '';
+			t.childNodes[0].checked = false;
+		}
+		else{
+			t.className="hover";
+			t.childNodes[0].checked = true;
+		}
+		
+	
+}
+
+changePrice();
+}
+</script>
+
+      <div class="quantity">
+        <h2>数量：</h2>
+        <div class="items"><span class="ui-number">
+         <script language="javascript" type="text/javascript">  function goods_cut(){  var num_val=document.getElementById('number');  var new_num=num_val.value;  var Num = parseInt(new_num);  if(Num>1)Num=Num-1;  num_val.value=Num;  }  function goods_add(){  var num_val=document.getElementById('number');  var new_num=num_val.value;  var Num = parseInt(new_num);  Num=Num+1;  num_val.value=Num;  } </script>
+          <button type="button" class="decrease" onclick="goods_cut();changePrice();">-</button>
+          <input type="number" class="num" id="number" onblur="changePrice();" name="number" value="1" min="1" max="4834"/>
+          <button type="button" class="increase" onclick="goods_add();changePrice();">+</button>
+          </span>
+           {if $volume_price_list}
+           {foreach from=$volume_price_list item=price_list key=price_key}
+          <span class="purchase">{$price_list.number}：<span class="purchase-v">{$price_list.format_price}</span></span> 
+          {/foreach}
+				{/if}
+                </div>
+      </div>
+    </div>
+    
+</section>
+
+
+</form>
+
+<script type="text/javascript">
+				/*第一种形式 第二种形式 更换显示样式*/
+				function setGoodsTab(name,cursel,n){
+				for(i=1;i<=n;i++){
+				var menu=document.getElementById(name+i);
+				var con=document.getElementById("user_"+name+"_"+i);
+				menu.className=i==cursel?"current":"";
+				con.style.display=i==cursel?"block":"none";
+				}
+				}
+				</script>
+                
+<section class="s-detail">
+  <header style="height: 40px;" >
+    <ul >
+      <li class="current" id="goods_ka1" onClick="setGoodsTab('goods_ka',1,3)"><a>详情</a></li>
+      <li id="goods_ka2" onClick="setGoodsTab('goods_ka',2,3)"><a>评价({$pinglun})</a> </li>
+      <li id="goods_ka3" onClick="setGoodsTab('goods_ka',3,3)" style="border-right:none;" ><a>相关</a></li>
+    </ul>
+  </header>
+  <style type="text/css">
+	#user_goods_ka_1 img { width:100%; height:auto;}
+	#user_goods_ka_1 div{max-width:92%;}
+	</style>
+  <div class="wrap">
+    <div class="scroller" style="-webkit-transition: -webkit-transform 350ms cubic-bezier(0, 0, 0.25, 1); -webkit-transform: translate3d(0px, 0px, 0px); ">
+      <div class="m-desc current" id="detail-desc" style="min-height: 645px; overflow: hidden;">
+         <div class="content" id="user_goods_ka_1" style="display:block; ">
+         {$goods.goods_desc}
+        </div>
+          <div class="content m-review" id="user_goods_ka_2" style="display:none">
+          {include file='library/comments.lbi'}         
+          </div>
+          <div class="content m-recommend" id="user_goods_ka_3" style="display:none;" > 
+          {include file='library/goods_related.lbi'}
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<div class="bottomdiv clearfix">
+    <div class="inner clearfix"> <a class="fl cart_time" href="flow.php" style="width:10%;"> <span class="num_cart hide" id="ECS_CARTINFO">{insert name='cart_info'}</span> <span class="carticon fl"></span> <span class="num_cunt hide" ></span> </a>
+        <div class="fl btn_sure" style="width:32%;"><a href="javascript:addToCart1({$goods.goods_id})"> 立即购买</a></div>
+        <div class="fl btn_buy" style="width:32%"><a href="javascript:addToCart({$goods.goods_id})" id="addshoping">加入购物车</a></div>
+        <a class="fr cart_time" style="width:10%;" href="javascript:collect({$goods.goods_id})"><span class="favicon fl"></span> </a> 
+    </div>
+</div>
+<div style="height:50px; line-height:50px; clear:both;"></div>
+<script type="text/javascript">
+var goods_id = {$goods_id};
+var goodsattr_style = {$cfg.goodsattr_style|default:1};
+var gmt_end_time = {$promote_end_time|default:0};
+{foreach from=$lang.goods_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var goodsId = {$goods_id};
+var now_time = {$now_time};
+
+<!-- {literal} -->
+onload = function(){
+  changePrice();
+  try { onload_leftTime(); }
+  catch (e) {}
+}
+
+/**
+ * 点选可选属性或改变数量时修改商品价格的函数
+ */
+function changePrice()
+{
+  var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+  var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
+
+  Ajax.call('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse, 'GET', 'JSON');
+}
+
+/**
+ * 接收返回的信息
+ */
+function changePriceResponse(res)
+{
+  if (res.err_msg.length > 0)
+  {
+    alert(res.err_msg);
+  }
+  else
+  {
+    document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+
+    if (document.getElementById('ECS_GOODS_AMOUNT'))
+      document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
+  }
+}
+<!-- {/literal} -->
+</script>
+
+
+</body>
+</html>

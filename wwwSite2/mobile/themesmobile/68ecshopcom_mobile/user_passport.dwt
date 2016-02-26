@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>{$page_title}</title>
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<link rel="shortcut icon" href="static/img/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="static/img/website_icon.png">
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="static/css/component.css">
+<link rel="stylesheet" href="static/css/login.css">
+<link rel="stylesheet" href="static/css/register.css">
+<script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="static/js/sms.js"></script>
+{insert_scripts files='common.js,utils.js,user.js,transport.js'}
+</head>
+<body >
+<div id="tbh5v0">
+  <div class="screen-wrap fullscreen login">
+    <header id="header">
+      <div class="c-inav">
+        <section>
+          <button class="back" onClick="history.back(-1)">
+          </button>
+        </section>
+        <section> <span>{if $action eq 'login'}会员登录{/if}
+                {if $action eq 'register'}用户注册{/if}
+                {if $action eq 'get_password'}找回密码{/if}
+                {if $action eq 'get_passwd_question'}找回密码{/if}
+                {if $action eq 'reset_password'}找回密码{/if}	
+                {if $action eq 'qpassword_name'}找回密码{/if}
+                </span> </section>
+        <section></section>
+      </div>
+    </header>
+{if $action eq 'login'}
+<script>
+      $().ready(function(){
+          //登录切换
+          $("#logRegTab li").bind("click", function () {
+              if (this.id == "mob_log") {
+                  $("#mob_log").removeClass("currl");
+                  $("#acc_log").addClass("currr");
+                  $("#phonearea").removeClass("hide");
+                  $("#accountarea").addClass("hide");
+              } else {
+                  $("#acc_log").removeClass("currr");
+                  $("#mob_log").addClass("currl");
+                  $("#phonearea").addClass("hide");
+                  $("#accountarea").removeClass("hide");
+              }
+			  $(".btn_log").css("color","#FFFEFE");
+          });
+	  });
+  </script>
+ <div class="m311 log_reg_box">
+    <ul class="tab" id="logRegTab">
+      <li id="mob_log" class="curr"><span><font>登录</font></span></li>
+      <li id="acc_log" class="curr currr"><span><font>免费注册</font></span></li>
+    </ul>
+    
+    <div id="logRegTabCon">
+      <div class="log_reg_item" id="phonearea"> 
+        
+    <section class="innercontent" >
+      <form action="user.php" method="post" class="c-form login-form">
+        <fieldset>
+          <div class="field username">
+            <div class="c-form-search">
+              <input type="text" name="username" placeholder="请输入用户名" value=""/>
+            </div>
+          </div>
+          <div class="field pwd">
+            <input type="password" name="password" placeholder="密码" class="c-form-txt-normal"/>
+          </div>
+           {if $enabled_captcha}
+          <div class="field identifyCode">
+                        <div class="c-form-search">
+                            <div class="codeTxt">
+            <input type="text" name="captcha" placeholder="验证码" class="c-f-text"/>
+            </div>
+             <div class="codePhoto">
+            <img class="check-code-img" src="captcha.php?is_login=1&{$rand}" alt="{$lang.comment_captcha}"  title="{$lang.captcha_tip}" onClick="this.src='captcha.php?is_login=1&'+Math.random()" height="35"/> </div>
+            </div>
+             {/if}
+          <div class="field submit-btn">
+            <input type="submit" class="c-btn-oran-big1" onclick="member_login()" value="登 录">
+            <input type="hidden" name="act" value="act_login">
+			<input type="hidden" name="back_act" value="{$back_act}">
+          </div>
+          <div class="field">
+            <label class="bf1 login_ffri"><input type="checkbox" name="remember" value="1" checked="" >&nbsp;保存登录信息</label>
+        
+               <a class="login_ffleft" href="user.php?act=get_password">找回密码</a>
+          
+          <div style="height:20px; line-height:20px; clear:both"></div>
+
+           </div>
+           
+        </fieldset>
+      </form>
+    </section>
+    
+
+      </div>
+      <div class="log_reg_item hide" id="accountarea"> 
+      <section class="innercontent">
+<form action="user.php" method="post"  name="formUser" onsubmit="return register();">
+<fieldset>
+<div class="field username">
+<div class="c-form-search st" style="background-position: 7px 10px;">
+<input type="text" name="username" id="username" placeholder="账户名" class="c-f-text"  onblur="is_registered(this.value);"/>
+                        </div>
+                        <div class="tips" ><span id="username_notice"></span></div>
+                    </div>
+
+                    
+                 
+                    <div class="field pwd">
+                        <div class="ptxt st">
+                            <input type="password" name="password" id="password1" onblur="check_password(this.value);" value="" placeholder="密码" class="c-f-text"/>
+                        </div>
+                        <div class="tips"><span id="password_notice"> </span></div>
+                    </div>
+                     <div class="field pwd">
+                        <div class="ptxt st">
+                            <input type="password" name="confirm_password" id="conform_password" onblur="check_conform_password(this.value);" value="" placeholder="确认密码" class="c-f-text">
+                        </div>
+                         <div class="tips"><span id="conform_password_notice"> </span></div>
+                    </div>
+                    {foreach from=$extend_info_list item=field}
+					{if $field.id eq 6}
+                      <div class="" >
+                        <div class="" >
+					
+						<select name="sel_question"{if $field.is_need} required{/if} class="c-f-text">
+							{html_options options=$passwd_questions selected=$profile.passwd_question}
+						</select>
+                    </div></div>
+                      <div class="field no">
+                        <div class="ptxt st">
+				
+						<input type="text "  placeholder="密码问题答案" name="passwd_answer" value="{$profile.passwd_answer}" {if $field.is_need} required{/if} class="c-f-text"/>
+                   </div>
+                     <!-- {if $field.is_need} -->
+       <div class="tips"><span id="conform_password_notice"> </span></div>
+        <!-- {/if} -->
+                   </div>
+					{else}
+                     <div class="field no">
+                        <div class="ptxt st">					
+						<input type="text" name="extend_field{$field.id}" value="{$field.content}" placeholder="{$field.reg_field_name}" id="extend_field_{$field.id}" class="c-f-text"/>
+                    </div>
+                     <!-- {if $field.is_need} -->
+       <div class="tips"><span id="conform_password_notice"> </span></div>
+        <!-- {/if} -->
+                    </div>
+					{/if}
+					{/foreach}
+                    {if $enabled_captcha}
+                    <div class="field identifyCode">
+                        <div class="c-form-search">
+                            <div class="codeTxt">
+                                <input type="text" name="captcha"  placeholder="手机验证码" id="mobile_field" class="c-f-text"/>
+                            </div>
+                            <div class="phoneCode">
+                                <input type="button" id="zphone" value="获取验证码" onclick="sendSms();" class="zphone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field identifyCode">
+                        <div class="c-form-search">
+                            <div class="codeTxt">
+                                <input name="captcha" type="text" value="" placeholder="输入验证码" class="c-f-text">
+                            </div>
+                            <div class="codePhoto">
+                                <img src="captcha.php?{$rand}" alt="{$lang.comment_captcha}" title="{$lang.captcha_tip}" onClick="this.src='captcha.php?'+Math.random()" height="35"/>
+                            </div>
+                        </div>
+                    </div>
+                    {/if}
+                    <div class="field submit-btn">
+                    <input type="checkbox" style="display:none" name="agreement" value="1" checked="checked" required>
+                        <input type="submit" class="c-btn-orange" value="注 册">
+                        <input type="hidden" name="act" value="act_register">
+						<input type="hidden" name="back_act" value="{$back_act}">
+                    </div>
+
+                </fieldset>
+       </form> 
+</section>
+         
+      </div>
+    </div>
+    
+  </div>
+
+    
+{/if}
+
+{if $action eq 'register'}
+{if $shop_reg_closed eq 1}
+<section class="innercontent">
+<div>{$lang.shop_register_closed}</div>
+</section>
+{else}
+<script>
+      $().ready(function(){
+          //登录切换
+          $("#logRegTab li").bind("click", function () {
+              if (this.id == "mob_log") {
+                  $("#mob_log").removeClass("currl");
+                  $("#acc_log").addClass("currr");
+                  $("#phonearea").removeClass("hide");
+                  $("#accountarea").addClass("hide");
+              } else {
+                  $("#acc_log").removeClass("currr");
+                  $("#mob_log").addClass("currl");
+                  $("#phonearea").addClass("hide");
+                  $("#accountarea").removeClass("hide");
+              }
+			  $(".btn_log").css("color","#FFFEFE");
+          });
+	  });
+  </script>
+ <div class="m311 log_reg_box">
+    <ul class="tab" id="logRegTab">
+      <li id="mob_log" class="curr currl"><span><font>手机登录</font></span></li>
+      <li id="acc_log" class="curr "><span><font>免费注册</font></span></li>
+    </ul>
+    
+    <div id="logRegTabCon">
+      <div class="log_reg_item hide" id="phonearea"> 
+        
+    <section class="innercontent" >
+      <form action="user.php" method="post" class="c-form login-form">
+        <fieldset>
+          <div class="field username">
+            <div class="c-form-search">
+              <input type="text" name="username" placeholder="请输入用户名/邮箱" value=""/>
+            </div>
+          </div>
+          <div class="field pwd">
+            <input type="password" name="password" placeholder="密码" class="c-form-txt-normal"/>
+          </div>
+           {if $enabled_captcha}
+          <div class="field auth-code">
+            <input type="text" name="captcha" placeholder="验证码" class="c-form-txt-normal"/>
+            <img class="check-code-img" src="captcha.php?is_login=1&{$rand}" alt="{$lang.comment_captcha}"  title="{$lang.captcha_tip}" onClick="this.src='captcha.php?is_login=1&'+Math.random()" height="25"/> </div>
+             {/if}
+          <div class="field submit-btn">
+            <input type="submit" class="c-btn-oran-big1" onclick="member_login()" value="登 录">
+            <input type="hidden" name="act" value="act_login">
+			<input type="hidden" name="back_act" value="{$back_act}">
+          </div>
+          <div class="field">
+            <label class="bf1"><input type="checkbox" name="remember" value="1" checked="" >保存登录信息</label>
+            <div style="height:20px; line-height:20px; clear:both"></div>
+               <a class="login_ffri" href="user.php?act=get_password">找回密码</a>
+          <a class="login_ffleft" href="user.php?act=register">免费注册</a>
+          <div style="height:10px; line-height:10px; clear:both"></div>
+           	使用合作网站账号登录：
+           </div>
+           <div class="signIn_coo" >
+       <ul class="coo_panel cssBox">
+                    <li class="box_flex_1">
+                        <div class="btn_qq" ></div>
+                    </li>
+                    <li class="box_flex_1">
+                        <div class="btn_alipay" ></div>
+                    </li>
+                    <li class="box_flex_1">
+                        <div class="btn_weibo"></div>
+                    </li>
+                   </ul>
+		</div>
+        </fieldset>
+      </form>
+    </section>
+    
+
+      </div>
+      <div class="log_reg_item " id="accountarea"> 
+      <section class="innercontent">
+<form action="user.php" method="post"  name="formUser" onsubmit="return register();">
+<fieldset>
+<div class="field username">
+<div class="c-form-search st" style="background-position: 7px 10px;">
+<input type="text" name="username" id="username" placeholder="账户名" class="c-f-text"  onblur="is_registered(this.value);"/>
+                        </div>
+                        <div class="tips" ><span id="username_notice"></span></div>
+                    </div>
+
+                    
+                 
+                    <div class="field pwd">
+                        <div class="ptxt st">
+                            <input type="password" name="password" id="password1" onblur="check_password(this.value);" value="" placeholder="密码" class="c-f-text"/>
+                        </div>
+                        <div class="tips"><span id="password_notice"> </span></div>
+                    </div>
+                     <div class="field pwd">
+                        <div class="ptxt st">
+                            <input type="password" name="confirm_password" id="conform_password" onblur="check_conform_password(this.value);" value="" placeholder="确认密码" class="c-f-text">
+                        </div>
+                         <div class="tips"><span id="conform_password_notice"> </span></div>
+                    </div>
+                    {foreach from=$extend_info_list item=field}
+					{if $field.id eq 6}
+                      <div class="" >
+                        <div class="" >
+					
+						<select name="sel_question"{if $field.is_need} required{/if} class="c-f-text">
+							{html_options options=$passwd_questions selected=$profile.passwd_question}
+						</select>
+                    </div></div>
+                      <div class="field no">
+                        <div class="ptxt st">
+				
+						<input type="text "  placeholder="密码问题答案" name="passwd_answer" value="{$profile.passwd_answer}" {if $field.is_need} required{/if} class="c-f-text"/>
+                   </div>
+                     <!-- {if $field.is_need} -->
+       <div class="tips"><span id="conform_password_notice"> </span></div>
+        <!-- {/if} -->
+                   </div>
+					{else}
+                     <div class="field no">
+                        <div class="ptxt st">					
+						<input type="text" name="extend_field{$field.id}" value="{$field.content}" placeholder="{$field.reg_field_name}" id="extend_field_{$field.id}" class="c-f-text"/>
+                    </div>
+                     <!-- {if $field.is_need} -->
+                    <div class="tips">
+                        <span id="conform_password_notice"> </span>
+                    </div>
+        <!-- {/if} -->
+                    </div>
+					{/if}
+					{/foreach}
+                    {if $enabled_captcha}
+                    <div class="field identifyCode">
+                        <div class="c-form-search">
+                            <div class="codeTxt">
+                                <input name="captcha" type="text" value="" placeholder="输入验证码" class="c-f-text">
+                            </div>
+                            <div class="codePhoto">
+                                <img src="captcha.php?{$rand}" alt="{$lang.comment_captcha}" title="{$lang.captcha_tip}" onClick="this.src='captcha.php?'+Math.random()" height="30"/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {/if}
+                    <div class="field submit-btn">
+                    <input type="checkbox" style="display:none" name="agreement" value="1" checked="checked" required>
+                        <input type="submit" class="c-btn-orange" value="注 册">
+                       <input type="hidden" name="act" value="act_register">
+						<input type="hidden" name="back_act" value="{$back_act}">
+                        
+                    </div>
+
+                </fieldset>
+       </form> 
+</section>
+         
+      </div>
+    </div>
+    
+  </div>
+
+{/if}
+   
+	
+	{/if}
+	{if $action eq 'get_password'}
+<section class="innercontent">
+
+      <form action="user.php" method="post">
+        <fieldset>
+          <div class="field username">
+            <div class="c-form-search st">
+              <input type="text" name="user_name" placeholder="请输入用户名/邮箱" value="" class="c-f-text"/>
+            </div>
+          </div>
+           
+           <div class="field email">
+               <div class="c-form-search st">
+                <input type="email" name="email" placeholder="邮箱" class="c-f-text"/>
+               </div>
+               <div class="tips"></div>
+           </div>
+         
+          <div class="field submit-btn">
+            <input type="submit" class="c-btn-oran-big1" value="提 交">
+            <input type="hidden" name="act" value="send_pwd_email">
+          </div>
+            <div class="tips">填写正确的用户名和注册邮箱地址后会收到包含取回密码链接的邮件。</div>
+             <div class="tips">如果您想马上登录，可以使用密码问题来修改密码。</div>
+			<div class="tips">
+				<a href="user.php?act=qpassword_name">密码问题找回密码</a>
+			</div>
+        </fieldset>
+      </form>
+    </section>
+{/if}
+	{if $action eq 'qpassword_name'}
+<section class="innercontent">
+
+      <form action="user.php" method="post">
+        <fieldset>
+          <div class="field username">
+            <div class="c-form-search st">
+              <input type="text" name="user_name" placeholder="请输入用户名/邮箱" value="" class="c-f-text"/>
+            </div>
+          </div>
+         
+          <div class="field submit-btn">
+            <input type="submit" class="c-btn-oran-big1" value="提 交">
+            <input type="hidden" name="act" value="get_passwd_question"/>
+          </div>
+            <div class="tips">如果您忘记了密码问题答案，可以使用注册邮箱来修改密码。</div>
+			<div class="tips">
+				<a href="user.php?act=get_password">注册邮件找回密码</a>
+			</div>
+        </fieldset>
+      </form>
+    </section>
+{/if}
+	{if $action eq 'get_passwd_question'}
+<section class="innercontent">
+
+      <form action="user.php" method="post">
+        <fieldset>
+          <div class="field username">
+            <div class="c-form-search st">
+            {$lang.passwd_question}{$lang.colon}
+              {$passwd_question}
+            </div>
+          </div>
+           
+           <div class="field email">
+             <div class="c-form-search st">
+            <input type="text" name="passwd_answer" placeholder="{$lang.passwd_answer}" class="c-f-text"/>
+           </div>
+                        <div class="tips"></div>
+                    </div>
+          {if $enabled_captcha}
+                    <div class="field identifyCode">
+                        <div class="c-form-search">
+                            <div class="codeTxt">
+                                <input name="captcha" type="text" value="" placeholder="{$lang.comment_captcha}" class="c-f-text">
+                            </div>
+                            <div class="codePhoto">
+                                <img src="captcha.php?is_login=1&{$rand}" alt="{$lang.comment_captcha}" title="{$lang.captcha_tip}" onClick="this.src='captcha.php?is_login=1&'+Math.random()"/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {/if}
+          <div class="field submit-btn">
+            <input type="submit" class="c-btn-oran-big1" value="{$lang.submit}">
+           <input type="hidden" name="act" value="check_answer"/>
+          </div>
+           
+        </fieldset>
+      </form>
+    </section>
+{/if}
+	{if $action eq 'reset_password'}
+<section class="innercontent">
+
+      <form action="user.php" method="post">
+        <fieldset>
+          <div class="field username">
+            <div class="c-form-search st">
+              <input type="password" name="new_password" placeholder="{$lang.new_password}" value="" class="c-f-text"/>
+            </div>
+          </div>
+           
+           <div class="field email">
+             <div class="c-form-search st">
+            <input type="password" name="confirm_password" placeholder="{$lang.confirm_password}" class="c-f-text"/>
+           </div>
+                        <div class="tips"></div>
+                    </div>
+         
+          <div class="field submit-btn">
+            <input type="submit" class="c-btn-oran-big1" value="{$lang.confirm_submit}">
+            <input type="hidden" name="act" value="act_edit_password">
+						<input type="hidden" name="uid" value="{$uid}">
+						<input type="hidden" name="code" value="{$code}">
+          </div>
+            
+        </fieldset>
+      </form>
+    </section>
+{/if}
+
+   {include file='library/page_footer.lbi'}     
+  </div>
+</div>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+{foreach from=$lang.passport_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var username_exist = "{$lang.username_exist}";
+</script>
+
+  <!-- #BeginLibraryItem "/library/footer_nav.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

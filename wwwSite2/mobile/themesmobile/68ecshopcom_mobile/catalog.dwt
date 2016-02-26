@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>{$page_title}</title>
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<link rel="shortcut icon" href="static/img/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="static/img/website_icon.png">
+<link rel="stylesheet" href="static/css/ec_detail.css">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body class="category_bg">
+<header class="s-header">
+<nav>
+<h1>类目浏览</h1>
+<a href="javascript:history.back(-1)" class="back">返回</a>
+</nav>
+</header>
+
+<div class="ccontainer">
+
+  
+<div class="clist">
+ <!--{foreach from=$categories item=cat name=name}-->
+    <ul>
+      <li class="crow level1">
+        <div class="crow_row">   
+         <div class="crow_icon"> <img alt="" src="static/img/catalog/catalogbg{$smarty.foreach.name.iteration}.png"> </div>      
+          <div class="crow_title"> <a href="{$cat.url}">{$cat.name|escape:html}</a> </div>
+          <div class="crow_arrow"><img src="static/img/fenlei_xia.png"></div>
+          <div>&nbsp;</div>
+        </div>
+      </li>
+      <ul class="clist clist_sub" style="opacity: 1; display: none; ">
+        <li class="crow">
+         <!--{foreach from=$cat.cat_id item=child}-->
+        <div class="crow_row">
+        <div class="crow_two"> <a href="{$child.url}">{$child.name|escape:html}</a></div>
+        </div>
+         <!--{if $child.cat_id}-->
+          <div class="crow_row">
+          <!--{foreach from=$child.cat_id item=childer name=cat22}-->
+            <div class="crow_item" {if $smarty.foreach.cat22.iteration % 3 eq 0}style="border-right:none;"{/if}><a href="{$childer.url}">{$childer.name}</a></div>
+            <!--{/foreach}-->
+            <div class="clear"></div>
+          </div>
+          <!--{/if}-->
+          <!--{/foreach}-->
+        </li>
+      </ul>
+     
+    </ul>
+    
+    <!--{/foreach}-->
+  </div>
+  </div>
+  <script src="static/js/zepto.min.js"></script>
+<script src="static/js/category.js"></script>
+  <!-- #BeginLibraryItem "/library/footer_nav.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

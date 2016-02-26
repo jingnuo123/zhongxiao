@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>中小互联一站式服务平台</title>
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<link rel="apple-touch-icon" href="static/js/7017233.png"/>
+<link rel="stylesheet" type="text/css" href="static/css/ecsmart_index.css"/>
+<link rel="stylesheet" type="text/css" href="static/css/style.css"/>
+<link type="text/css" rel="stylesheet" href="static/css/jquery.ecsmart.menu.css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link rel="stylesheet" href="static/css/common_new.css">
+<script type="text/javascript" src="static/js/jquery.js"></script>
+<script type="text/javascript" src="static/js/touchslider.dev.js"></script>
+</head>
+<body>
+
+
+<div id="page" class="showpage">
+
+<div id="header" class='header'>
+     <a href="#menu" class="top_bt fl"></a>
+     <span href="javascript:void(0)" class="logo">中小互联一站式服务平台</span>
+    <a href="user.php"> <div class='user_btn'></div></a>
+</div>
+<div class="tmall-h5-v2" id="content"> 
+<!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem -->
+  <header class="region">
+    <div class="content">
+<div class="top">
+        <h1></h1>
+      </div>
+      <div id="fake-search" >
+      
+        <div class="fakeInput">
+        <input  type="text" id="search_text" class="search_text"/>
+          <input type="button" id="get_search_box" class="search_submit" value=""/>
+        </div>
+
+      </div>
+    </div>
+  </header>
+  <div class="region entry-list">
+   <a href="brand.php"> <img alt="商品品牌" height="32px" src="static/img/617709.png" width="32px"/><br>
+    <span>商品品牌</span> </a> 
+
+     <a href="http://gongyi.mslink.com.cn"> <img alt="分享" height="32px" src="static/img/15386028.png" width="32px"/><br>
+    <span>德和公益</span> </a> 
+
+    <a href="http://www.alltrust.com.cn"> <img alt="购物车" height="32px" src="static/img/11319877.png" width="36px"/><br>
+    <span>保险直通车</span> </a>
+   
+    <a class="" href="https://www.xiaoweijutou.com/wap/index.html"> <img alt="收藏夹" height="32px" src="static/img/9845638.png" width="32px"><br>
+    <span>小微聚投</span> </a>
+    <!-- 为双11添加 -->
+    <br>
+    <br>
+     <a href="http://www.acc-sme.com"> <img alt="用户中心" height="32px" src="static/img/9098220.png" width="32px"/><br>
+    <span>首席法务官</span> </a>
+   
+    <a href="http://ecla.com.cn"> <img alt="联系我们" height="32px" src="static/img/4625204.png" width="32px"/><br>
+    <span>德和律师在线</span> </a> 
+
+    <a href="http://cs.xinhuiyun.com/zt/beidou/"> 
+  <img alt="商品类目" height="32px" src="static/img/4411607.png" width="32px"/><br>
+    <span>众创空间</span> </a> 
+
+    <a href="http://www.10splan.com"> <img alt="地图" height="32px" src="static/img/14148231.png" width="32px"><br>
+    <span>企业家俱乐部</span> </a> 
+    </div>
+
+
+
+<div>
+	<div class="flashing feng fpic1" id="fphoto1">
+		<a href="http://www.10splan.com/mobile"><img src="flash_pics/0.jpeg"/></a>
+	</div>
+	<div class="flashing feng fpic2" id="fphoto2">
+		<a href="http://www.10splan.com/mobile"><img src="flash_pics/1.jpeg"/></a>
+	</div>
+	<div class="flashing feng fpic3" id="fphoto3">
+		<a href="http://www.10splan.com/mobile"><img src="flash_pics/2.jpeg"/></a>
+	</div>
+</div>
+
+    
+
+
+
+<script>
+	var x = 1;
+	var pic1 = document.getElementById("fphoto1");
+	var pic2 = document.getElementById("fphoto2");
+	var pic3 = document.getElementById("fphoto3");
+	pic1.style.display = "block";
+	pic2.style.display = "none";
+	pic3.style.display = "none";
+	var _goFlash = setInterval(_hideOrShow, 5000)
+	function _hideOrShow(){
+		if(x == 1){
+			pic1.style.display = "block";
+			pic2.style.display = "none";
+			pic3.style.display = "none";
+			x = 2;
+			return;
+		}
+		else if(x == 2){
+			pic1.style.display = "none";
+			pic2.style.display = "block";
+			pic3.style.display = "none";
+			x = 3;
+			return;
+		}
+		else if(x == 3){
+			pic1.style.display = "none";
+			pic2.style.display = "none";
+			pic3.style.display = "block";
+			x = 1;
+			return;
+		}
+		
+	}
+</script >    
+
+
+<style>
+	.feng{
+		display:none;
+	}
+.feng img{
+	width:100%;
+	height:172px;
+  
+}
+</style>
+
+  
+
+
+<div class="markets">
+      <p class="row2">
+        <?php
+		 $GLOBALS['smarty']->assign('index_lit_img4',get_advlist('首页幻灯片-小图下1',1));
+		?>
+        <!--{foreach from=$index_lit_img4 item=ad name=index_image}--> 
+        <a href="{$ad.url}" target="_blank" title="{$ad.name}"><img data-original="{$ad.image}"  src="flash_pics/1448778715305092864.jpg"  alt="{$ad.name}" /></a> 
+        <!--{/foreach}-->
+        <?php
+		 $GLOBALS['smarty']->assign('index_lit_img5',get_advlist('首页幻灯片-小图下2',1));
+		?>
+        <!--{foreach from=$index_lit_img5 item=ad name=index_image}--> 
+        <a href="{$ad.url}" target="_blank" title="{$ad.name}" class="row2_2"><img data-original="{$ad.image}"  src="flash_pics/1448779349555819698.jpg"  alt="{$ad.name}" /></a> 
+        <!--{/foreach}-->
+        <?php
+		 $GLOBALS['smarty']->assign('index_lit_img6',get_advlist('首页幻灯片-小图下3',1));
+		?>
+        <!--{foreach from=$index_lit_img6 item=ad name=index_image}--> 
+        <a href="{$ad.url}" target="_blank" title="{$ad.name}"><img data-original="{$ad.image}"  src="flash_pics/1448777459685367726.jpg"  alt="{$ad.name}" /></a> 
+        <!--{/foreach}--> 
+<?php
+		 $GLOBALS['smarty']->assign('index_lit_img7',get_advlist('首页幻灯片-小图下4',1));
+		?>
+        <!--{foreach from=$index_lit_img7 item=ad name=index_image}--> 
+        <a href="{$ad.url}" target="_blank" title="{$ad.name}"><img data-original="{$ad.image}"  src="flash_pics/1448664714736295232.png"  alt="{$ad.name}" /></a> 
+        <!--{/foreach}--> 
+	 
+      
+    </div>
+
+<style>
+	.row2{width:100%;margin:0;}
+	.row2 img{width:24.3%;margin:0;}
+</style>
+
+
+
+  <!-- #BeginLibraryItem "/library/recommend_promotion.lbi" --><!-- #EndLibraryItem --> 
+  <!-- #BeginLibraryItem "/library/recommend_new.lbi" --><!-- #EndLibraryItem --> 
+  <!-- #BeginLibraryItem "/library/recommend_best.lbi" --><!-- #EndLibraryItem --> 
+    
+    <!-- #BeginLibraryItem "/library/recommend_hot.lbi" --><!-- #EndLibraryItem --> 
+
+
+  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+</div>
+
+
+
+
+
+<div id="main-search" class="main-search">
+<div class="hd"> <span class="ico_08 close"> 关闭 </span> </div>
+<div class="bd">
+  <div class="search_box">
+    <form action="search.php" method="post" id="searchForm" name="searchForm">
+      <div class="content">
+        <input class="text" type="search" name="keywords" id="keywordBox" autofocus>
+        <button class="ico_07" type="submit" value="搜 索" onclick="return check(&#39;keywordBox&#39;)"></button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<nav id="menu">
+<ul class="Selected">
+<li><a href="javascript:void(0)" class="mm-subclose1">商品分类</a></li>
+<!--{foreach from=$categories item=cat}-->
+<li>
+<a href="{$cat.url}" >{$cat.name|escape:html}</a>
+						<ul >
+                         <!--{foreach from=$cat.cat_id item=child}-->
+							<li>
+								<a href="{$child.url}">{$child.name|escape:html}</a>
+                                {if $child.cat_id}
+								<ul>
+                                 <!--{foreach from=$child.cat_id item=childer}-->
+								 <li><a href="{$childer.url}">{$childer.name|escape:html}</a></li>
+								 <!--{/foreach}--> 
+								</ul>
+                                {/if}
+							</li>
+                             <!--{/foreach}-->
+                            
+</ul>
+</li>
+<!--{/foreach}--> 
+</ul>
+</nav>
+<script type="text/javascript" src="static/js/jquery.mmenu.js"></script>
+<script type="text/javascript">
+			$(function() {
+				$('nav#menu').mmenu();
+			});
+</script>
+</div>
+<!-- #BeginLibraryItem "/library/footer_nav.lbi" --><!-- #EndLibraryItem -->
+</div>
+<script type="text/javascript">
+
+$(function() {
+
+	$('#search_text').click(function(){
+		$(".showpage").children('div').hide();
+		$("#main-search").css('position','fixed').css('top','0px').css('width','100%').css('z-index','999').show();
+	})
+	$('#get_search_box').click(function(){
+		$(".showpage").children('div').hide();
+		$("#main-search").css('position','fixed').css('top','0px').css('width','100%').css('z-index','999').show();
+	})
+	$("#main-search .close").click(function(){
+		$(".showpage").children('div').show();
+		$("#main-search").hide();
+	})
+});
+</script>
+</body>
+</html>
