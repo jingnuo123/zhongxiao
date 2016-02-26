@@ -1,0 +1,49 @@
+<div>
+	<div class="flashing feng fpic1" id="fphoto1">
+		<a href="www.baidu.com"><img src="0.jpeg"></a>
+	</div>
+	<div class="flashing feng fpic2" id="fphoto2">
+		<a href="www.baidu.com"><img src="1.jpeg"></a>
+	</div>
+	<div class="flashing feng fpic3" id="fphoto3">
+		<a href="www.baidu.com"><img src="2.jpeg"></a>
+	</div>
+</div>
+<style>
+	.feng{
+		float: left;
+		display: inline;
+	}
+</style>
+
+<script >
+	var x = 1;
+	var pic1 = document.getElementById("fphoto1");
+	var pic2 = document.getElementById("fphoto2");
+	var pic3 = document.getElementById("fphoto3");
+	pic1.style.display = "block";
+	pic2.style.display = "none";
+	pic3.style.display = "none";
+	var _goFlash = setInterval(_hideOrShow, 3000)
+	function _hideOrShow(){
+		if(x == 1){
+			pic1.style.display = "block";
+			pic2.style.display = "none";
+			pic3.style.display = "none";
+			x = 2;
+		}
+		else if(x == 2){
+			pic1.style.display = "none";
+			pic2.style.display = "block";
+			pic3.style.display = "none";
+			x = 3;
+		}
+		else if(x == 3){
+			pic1.style.display = "none";
+			pic2.style.display = "none";
+			pic3.style.display = "block";
+			x = 1;
+		}
+		
+	}
+</script >
