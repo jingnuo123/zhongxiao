@@ -1,0 +1,181 @@
+@charset "utf-8";
+/* CSS Document */
+.show-pic {
+	height: 400px;
+	overflow: hidden;
+}
+/*商品详情*/
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	display: block;
+	content: ".";
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+.buyNub-buy .u-buy1 {
+display: block;
+width: 135px;
+height: 36px;
+font-family: "微软雅黑";
+line-height: 36px;
+font-size: 16px;
+float: left;
+cursor: pointer;
+background: none repeat scroll 0% 0% #FF6500;
+margin-right: 15px;
+color: #FFF;
+text-align: center;
+text-decoration: none;
+}
+.buyNub-buy .u-buy2 {
+display: block;
+width: 135px;
+height: 36px;
+font-family: "微软雅黑";
+line-height: 36px;
+font-size: 16px;
+float: left;
+cursor: pointer;
+background: none repeat scroll 0% 0% #E31939;
+color: #FFF;
+text-align: center;
+text-decoration: none;
+border: medium none;
+}
+.buyNub-buy-wrap {
+	height: 70px;
+	padding: 0px 0 10px 8px;
+*padding-top:0px;
+	clear: both;
+}
+/*详情活动列表*/
+#summary .padd-promotion .dd {
+	margin-bottom: 5px
+}
+#summary .padd-promotion .J_MenuItem {
+	z-index:2
+}
+#summary .padd-promotion .dd a {
+	height: 25px;
+	line-height: 25px;
+	display: inline-block;
+}
+#summary .padd-promotion .dd a.activity_con {
+	margin-left: 10px;
+	padding: 0x 10px;
+	font-weight: 100;
+	color: #F52648;
+	float: left
+}
+#summary .padd-promotion .dd a.activity_1 {
+	background: url(../images/shengji_ad/zhijiang.gif) no-repeat;
+	width: 45px;
+	text-align: center;
+	line-height: 25px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+	color: #fff
+}
+#summary .padd-promotion .dd a.activity_2 {
+	background: url(../images/shengji_ad/manzeng.gif) no-repeat;
+	width: 45px;
+	text-align: center;
+	line-height: 25px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+	color: #fff;
+}
+#summary .padd-promotion .dd a.activity_3 {
+	background: url(../images/shengji_ad/hongbao.gif) no-repeat;
+	width: 45px;
+	text-align: center;
+	line-height: 25px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+	color: #fff
+}
+#summary .padd-promotion .dd a.activity_4 {
+	background: url(../images/shengji_ad/act_bg4.gif) no-repeat;
+	width: 75px;
+	text-align: center;
+	line-height: 25px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+	color: #fff
+}
+#summary .padd-promotion .dd i {
+	background: url(../images/shengji_ad/xiala.gif) no-repeat;
+	width: 7px;
+	height: 5px;
+	display: inline-block;
+	margin-top: -1px;
+	margin-left: 5px;
+	vertical-align: middle
+}
+#summary .padd-promotion #aa {
+	padding: 5px 10px 10px;
+	zoom: 1;
+	border: 1px solid #E8DCBB;
+	z-index: 3;
+	position: absolute;
+	top: 25px;
+*top:22px;
+	_top: 25px;
+	left: 55px;
+*left:55px;
+	background-color: #FCFBF8;
+	white-space: nowrap;
+	width: 280px;
+	height: auto;
+}
+#summary .padd-promotion #aa b.tip_flag {
+	background-position: -191px -40px;
+	height: 59px;
+	position: absolute;
+	right: 0;
+	width: 9px;
+	height: 6px;
+	background: url(../images/shengji_ad/jian4.gif) 0px 0px no-repeat;
+	left: 35px;
+	top: -5px;
+}
+#summary .padd-promotion #aa h3 {
+	clear: both;
+	padding: 5px 0 0;
+	color: #666;
+}
+#summary .padd-promotion #aa ul {
+	display: inline-block;
+	width: 280px;
+	padding-top: 10px
+}
+#summary .padd-promotion #aa ul li {
+	width: 50px;
+	padding: 0px 10px;
+	height: 75px;
+	display: block;
+	float: left;
+	text-align: center;
+}
+#summary .padd-promotion #aa ul li a {
+	width: 50px;
+	height: 50px;
+	display: block;
+}
+#summary .padd-promotion #aa ul li img {
+	width: 50px;
+	height: 50px;
+}
+#summary .padd-promotion #aa ul li p {
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+}

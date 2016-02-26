@@ -1,0 +1,725 @@
+@charset "utf-8";
+/* CSS Document */
+/*layout*/
+body {
+	margin: 0 auto;
+}
+.w {
+	width: 990px;
+	padding: 0;
+	margin: 0 auto;
+	zoom: 1;
+}
+.block {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+}
+.hide {
+	display: none;
+}
+.invisible {
+	visibility: hidden;
+}
+/*form*/
+.form label, .form input, .form select, .form textarea, .form button, .form .label {
+	float: left;
+	font-size: 12px;
+}
+.form .item {
+	overflow: hidden;
+	zoom: 1;
+}
+.btn-img {
+	cursor: pointer;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	text-align: center;
+}
+.btn-text {
+	cursor: pointer;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.btn-link {
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+/*module*/
+.m, .mt, .mc, .mb {
+	overflow: hidden;
+	zoom: 1;
+}
+.mt .extra {
+	float: right;
+}
+.m {
+	margin-bottom: 10px;
+}
+.lh {
+	overflow: hidden;
+	zoom: 1;
+}
+.lh li, .lh dl, .lh .item {
+	float: left;
+}
+.ld {
+	position: relative;
+	zoom: 1;
+}
+.ld s, .ld b, .ld .block {
+	position: absolute;
+	overflow: hidden;
+}
+/*tab*/
+.tab {
+	overflow: hidden;
+	zoom: 1;
+}
+.tab li, .tab-item {
+	float: left;
+	text-align: center;
+}
+/*regist*/
+#regist .mt {
+	height: 33px;
+	background: url(../images/login/tit_regist.jpg) repeat-x 0 -34px;
+}
+#regist .mt h2 {
+	float: left;
+	height: 33px;
+	padding-left: 15px;
+	background: url(../images/login/tit_regist.jpg) no-repeat 0 0;
+	line-height: 33px;
+}
+#regist .mt span {
+	float: right;
+	height: 33px;
+	line-height: 33px;
+	text-align: right;
+}
+#regist .mt b {
+	float: right;
+	width: 10px;
+	height: 33px;
+	background: url(../images/login/tit_regist.jpg) no-repeat 0 -68px;
+}
+#regist .mc {
+	padding: 15px 20px 20px;
+	border: solid #D1D1D1;
+	border-width: 0 1px 1px;
+	margin-bottom: 10px;
+}
+#regist .tab {
+	height: 29px;
+	overflow: visible;
+	padding-left: 300px;
+	margin-bottom: 25px;
+	border-bottom: 1px solid #FFCC66;
+}
+#regist .tab li {
+	width: 102px;
+	padding-top: 3px;
+	height: 27px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 27px;
+	color: #F79100;
+}
+#regist .tab li.fore {
+	width: 170px;
+}
+#regist .tab .curr {
+	position: relative;
+	background: url(../images/login/bg_regist.jpg) no-repeat 0 -83px;
+	font-weight: bold;
+	z-index: 10;
+	color: #a0410a;
+}
+#regist .tab .line {
+	background: url(../images/login/bg_shortcut_line.jpg) no-repeat right 7px;
+}
+#regist .tab a {
+	display: block;
+	overflow: hidden;
+	width: 74px;
+	height: 23px;
+	margin: 0 auto;
+	line-height: 23px;
+}
+#regist .tab .fore a {
+	width: 168px;
+}
+#regist .tab a:hover, #regist .tab a:active {
+	background: url(../images/login/bg_regist.jpg) no-repeat -167px 0;
+	color: #fff;
+	text-decoration: none;
+}
+#regist .tab .fore a:hover, #regist .tab .fore a:active {
+	background: none;
+	color: #333333;
+}
+*html #regist .tab {
+	overflow: hidden;
+}
+#regist .item {
+	padding-top: 5px;
+	height: 50px;
+	line-height: 26px;
+}
+#regist .item a {
+	text-decoration: underline;
+}
+#regist .label {
+	width: 90px;
+	text-align: right;
+	font-size: 14px;
+	text-align: right;
+	font-size: 14px;
+	color: #999;
+	padding-right: 10px;
+	height: 16px;
+	line-height: 30px;
+}
+#regist .label b {
+	margin-right: 5px;
+	font-weight: normal;
+}
+#regist .text {
+	width: 240px;
+	height: 13px;
+	padding: 10px 25px 10px 5px;
+	border: 1px solid #cccccc;
+	float: left;
+	font-size: 14px;
+	font-family: arial;
+	color: #999;
+}
+#regist .notice {
+	float: left;
+	width: 180px;
+	padding: 5px 5px 10px 5px;
+	height: 16px;
+	margin-left: 10px;
+	color: #999;
+}
+#regist .notice-name {
+	background: none repeat scroll 0 0 #f7f7f7;
+	border: 1px solid #dddddd;
+	color: #666;
+	line-height: 36px;
+	text-indent: 10px;
+}
+#regist .focus {
+	background: none repeat scroll 0 0 #f7f7f7;
+	border: 1px solid #dddddd;
+}
+#regist .text .text1 {
+	width: 240px;
+}
+#regist .text-1 {
+	width: 100px;
+}
+#regist .blank {
+	width: 16px;
+	height: 16px;
+	margin: 2px 5px 0;
+}
+#code_btn {
+	height: 36px;
+	margin-top: 1px;
+	margin-left: 10px;
+	border: 1px solid #CCC;
+	background: #F4F4F4;
+}
+#regist .img img {
+	height: 36px;
+	margin: 1px 5px;
+	width: 135px;
+}
+#regist .succeed {
+	background: url(../images/login/pwdstrength.gif) no-repeat -105px 0;
+}
+#regist .btn-regist {
+	width: 169px;
+	height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+	border-radius: 3px;
+	background: #E4393C;
+	text-align: center;
+	line-height: 30px;
+	text-decoration: none;
+	cursor: pointer;
+	letter-spacing: 5px
+}
+#regist .focus {
+	color: #999;
+	line-height: 22px;
+*line-height:20px;
+}
+#regist .null, #regist .error {
+	color: red;
+	line-height: 22px;
+*line-height:20px;
+}
+#regist .checkbox {
+	margin-top: 6px;
+*margin-top:2px;
+}
+.form {
+	position: relative;
+}
+.form .phone {
+	position: absolute;
+	right: 0px;
+	top: 6px;
+	width: 400px;
+}
+/*entry*/
+#entry .mt {
+	height: 33px;
+	background: url(../images/login/tit_regist.jpg) #D1D1D1 repeat-x 0 -34px;
+}
+#entry .mt h2 {
+	float: left;
+	height: 33px;
+	padding-left: 15px;
+	background: url(../images/login/tit_regist.jpg) no-repeat 0 0;
+	line-height: 33px;
+}
+#entry .mt span {
+	float: right;
+	height: 33px;
+	line-height: 33px;
+	text-align: right;
+}
+#entry .mt b {
+	float: right;
+	width: 10px;
+	height: 33px;
+	background: url(../images/login/tit_regist.jpg) no-repeat 0 -68px;
+}
+#entry .mc {
+	padding: 40px 20px 30px 40px;
+	border: solid #D1D1D1;
+	border-width: 0 1px 1px;
+	margin-bottom: 10px;
+}
+#entry .form {
+	float: left;
+	width: 480px;
+	overflow: hidden;
+}
+#entry .item {
+	padding-top: 5px;
+	height: 50px;
+	line-height: 26px;
+}
+#entry #autoentry {
+	height: 50px;
+}
+#entry .item a:link, #entry .item a:visited {
+	text-decoration: underline;
+}
+#entry .label {
+	width: 100px;
+	text-align: right;
+	font-size: 14px;
+	text-align: right;
+	font-size: 14px;
+	color: #999;
+	padding-right: 10px;
+	height: 16px;
+	line-height: 30px;
+}
+#entry .text {
+	width: 240px;
+	height: 16px;
+	padding: 10px 25px 10px 5px;
+	border: 1px solid #cccccc;
+	float: left;
+	font-size: 14px;
+	font-family: arial;
+	color: #999;
+}
+#entry .text-1 {
+	width: 100px;
+}
+#entry .blank {
+	width: 16px;
+	height: 16px;
+	margin: 2px 5px 0;
+}
+#entry .mar {
+	margin-right: 10px;
+}
+#entry .img img {
+	height: 36px;
+	margin: 1px 5px;
+	width: 135px;
+}
+#entry .succeed {
+	background: url(../images/login/pwdstrength.gif) no-repeat -105px 0;
+}
+#entry .btn-entry {
+	width: 100px;
+	height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+	border-radius: 3px;
+	background: #E4393C;
+	text-align: center;
+	line-height: 30px;
+	text-decoration: none;
+	cursor: pointer;
+	letter-spacing: 5px
+}
+#entry .focus {
+	color: #999;
+	line-height: 22px;
+ *line-height: 20px;
+}
+#entry .null, #entry .error {
+	color: red;
+	line-height: 22px;
+ *line-height: 20px;
+}
+#entry .checkbox {
+	margin-top: 6px;
+ *margin-top: 2px;
+}
+#entry .extra {
+	padding-left: 50px;
+	padding-top: 30px;
+}
+#entry .extra .btns {
+	float: left;
+	position: relative;
+	overflow: hidden;
+	height: 14px;
+	padding: 5px 0 5px 23px;
+	margin-right: 2px;
+	line-height: 14px;
+}
+#entry .extra .btns s {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 23px;
+	height: 23px;
+}
+#entry .extra .btns a:link, #entry .extra .btns a:visited {
+	text-decoration: none;
+	color: #005aa0;
+	padding-right: 4px;
+	border-right: 1px solid #DBDBDB;
+}
+#entry .extra .alipay a:link, #entry .extra .alipay a:visited {
+	border: none;
+}
+#entry .extra .more {
+	padding-left: 5px;
+}
+#entry .extra .more a:link, #entry .extra .more a:visited {
+	border: none;
+}
+/*guide*/
+#guide {
+	float: right;
+	width: 400px;
+	height: 290px;
+	padding: 0px 0px 0px 20px;
+	border-left: 1px solid #E7E7E7;
+}
+#guide .content {
+	color: #666;
+	padding: 10px 0 0;
+}
+#guide .btn-personal {
+	width: 137px;
+	height: 35px;
+	background: url(../images/login/bg_regist.jpg) no-repeat 0 -186px;
+	line-height: 35px;
+	margin: 20px auto;
+	font-weight: bold;
+	font-size: 14px;
+	margin-top: 35px;
+}
+#guide .btn-personal:hover {
+	text-decoration: none;
+}
+#guide .btns {
+	border-top: 1px dotted #ccc;
+	padding-top: 15px;
+	text-align: center;
+	margin-bottom: 10px;
+ *margin-bottom: 5px;
+}
+#guide .ept-enter {
+	text-align: center;
+	margin-bottom: 10px;
+ *margin-bottom: 5px;
+}
+#guide .btns a:link, #guide .btns a:visited, #guide .ept-enter a:link, #guide .ept-enter a:visited {
+	margin: 0 10px;
+	color: #005aa0;
+	font-size: 14px;
+}
+#guide .app a {
+	display: inline-block;
+	height: 50px;
+	width: 300px;
+	background: url(../images/login/app.jpg);
+	font-size: 0;
+	line-height: 100px;
+	overflow: hidden;
+}
+
+/*-moz-*/
+@-moz-document url-prefix() {
+#entry .btn-entry {
+padding-bottom:5px;
+}
+}
+@-moz-document url-prefix() {
+#entry .checkbox {
+margin-top:7px;
+}
+}
+@-moz-document url-prefix() {
+.qq, .alipay, .renren {
+line-height:22px;
+}
+}
+/**/
+#entry .safety {
+	position: relative;
+}
+#entry .mar {
+	margin-right: 10px;
+	line-height: 24px;
+}
+#entry .safety .mar-b {
+	height: 26px;
+	line-height: 26px;
+	margin-left: 5px
+}
+#entry .message {
+	color: #090 !important;
+}
+.item .item-ifo {
+	position: relative;
+	width: 540px;
+}
+.thickbox-form .item .item-ifo {
+	position: relative;
+	width: 330px;
+}
+.item .item-ifo-extra, .thickbox-form .item .item-ifo-extra {
+	position: relative;
+	width: 350px;
+}
+.item-ifo i, .thickbox-form .item-ifo i {
+	position: absolute;
+	right: 8px;
+}
+.item-ifo label {
+	height: 36px;
+	line-height: 36px;
+	margin: 0 10px;
+}
+#regist .text_te {
+	width: 90px;
+}
+.zphone {
+	width: 120px;
+	height: 36px;
+	border: 1px solid #DDD;
+	float: left;
+	font-size: 14px;
+	font-family: arial;
+	color: #333;
+	cursor: pointer;
+	margin-left: 10px;
+	background: #F4F4F4
+}
+.item-ifo .i-name, .thickbox-form .item-ifo .i-name {
+	background: url(../images/register/one4.jpg) no-repeat scroll 0 0 transparent;
+	height: 16px;
+	top: 9px;
+	width: 16px;
+	left: 250px;
+}
+.item-ifo .i-pass, .thickbox-form .item-ifo .i-pass {
+	background: url(../images/register/one5.jpg) no-repeat scroll 0 0 transparent;
+	height: 19px;
+	top: 10px;
+	width: 14px;
+	left: 250px;
+}
+.item-ifo .i-phone, .thickbox-form .item-ifo .i-phone {
+	background: url(../images/register/one6.jpg) no-repeat scroll 0 0 transparent;
+	height: 21px;
+	top: 8px;
+	width: 14px;
+	left: 250px;
+}
+a.blue:link, a.blue:visited {
+	color: #005AA0;
+}
+#countDown {
+	position: absolute;
+	top: 36px;
+	left: 1px;
+	width: 470px;
+}
+#regName_error, .thickbox-form #regName_error {
+	margin-top: 0;
+	float: none;
+	cursor: pointer;
+}
+#entry1 .mt {
+	height: 33px;
+	background: url(../images/login/tit_regist.jpg) #D1D1D1 repeat-x 0 -34px;
+}
+#entry1 .mt h2 {
+	float: left;
+	height: 33px;
+	padding-left: 15px;
+	background: url(../images/login/tit_regist.jpg) no-repeat 0 0;
+	line-height: 33px;
+}
+#entry1 .mt span {
+	float: right;
+	height: 33px;
+	line-height: 33px;
+	text-align: right;
+}
+#entry1 .mt b {
+	float: right;
+	width: 10px;
+	height: 33px;
+	background: url(../images/login/tit_regist.jpg) no-repeat 0 -68px;
+}
+#entry1 .mc {
+	padding: 40px 20px 30px 40px;
+	border: solid #D1D1D1;
+	border-width: 0 1px 1px;
+	margin-bottom: 10px;
+}
+#entry1 .form {
+	float: left;
+	width: 480px;
+	overflow: hidden;
+}
+#entry1 .item {
+	padding-top: 5px;
+	height: 50px;
+	line-height: 26px;
+}
+#entry1 .form {
+	float: left;
+	width: 910px;
+	overflow: hidden;
+}
+#entry1 .label {
+	width: 280px;
+	text-align: right;
+	font-size: 14px;
+	text-align: right;
+	font-size: 14px;
+	color: #999;
+	padding-right: 10px;
+	height: 38px;
+	line-height: 38px;
+}
+#entry1 .text {
+	width: 240px;
+	height: 16px;
+	padding: 10px 25px 10px 5px;
+	border: 1px solid #cccccc;
+	float: left;
+	font-size: 14px;
+	font-family: arial;
+	color: #999;
+}
+#entry1 .text1 {
+	width: 110px;
+}
+#entry1 #fphone {
+	margin-left: 10px;
+	margin-top: 4px;
+	height: 30px;
+	border: none;
+	cursor: pointer;
+	background: #EF4C4F;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+}
+.select-outer {
+	display: inline-block;
+*display:inline;
+	zoom: 1;
+}
+.select-inner {
+	display: inline-block;
+*display:inline;
+	zoom: 1;
+	height: 38px;
+	overflow: hidden;
+	position: relative;
+}
+.select-outer #find_type {
+	border: 1px solid #ccc;
+	width: 140px;
+	height: 38px;
+	font-size: 12px;
+	position: relative;
+	color: #909993;
+	zoom: 1;
+*margin-top:8px
+}
+#entry1 .btn-entry {
+	width: 100px;
+	height: 30px;
+	background: url(../images/login/new-regist.jpg) no-repeat scroll 0px -31px transparent;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+}
+#sn-bd {
+	width: 990px !important;
+}
+#menu-8 {
+	width: 990px !important;
+}
+#menu-8 .site-hot, #menu-8 .site-market, #menu-8 site-brand {
+	width: 285px !important;
+}
+#menu-8 {
+	width: 990px !important;
+}
+#menu-8 .site-hot, #menu-8 .site-market, #menu-8 site-brand {
+	width: 285px !important;
+}
+.wrapper {
+	width: 990px !important;
+	margin: 0 auto;
+}
+.info-text {
+	width: 990px !important;
+}
+.headerCon {
+	margin: 0 auto;
+	width: 990px;
+}
