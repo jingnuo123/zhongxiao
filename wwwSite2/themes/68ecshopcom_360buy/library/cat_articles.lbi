@@ -1,0 +1,6 @@
+
+  <ul class="mall-newss">
+    <!--{foreach from=$articles item=article_item name=name}-->
+    <li><i></i><a target="_blank" href="{$article_item.url}" title="{$article_item.title}">{$article_item.short_title} </a> </li>
+    <!--{/foreach}-->
+  </ul>

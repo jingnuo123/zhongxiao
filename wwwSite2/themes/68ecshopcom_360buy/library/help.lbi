@@ -1,0 +1,23 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $helps}
+<div class="site-footer" style="border-top:1px solid #dfdfdf">
+  <div class="wrapper">
+<div class="footer-links clearfix"> 
+      <!-- {foreach from=$helps item=help_cat name=no} -->
+      <dl class="col-links {if $smarty.foreach.no.first}col-links-first{/if}">
+        <dt>{$help_cat.cat_name}</dt>
+        <!-- {foreach from=$help_cat.article item=item} -->
+        <dd><a rel="nofollow" href="help.php?id={$item.article_id}" target="_blank">{$item.short_title}</a></dd>
+        <!-- {/foreach} -->
+      </dl>
+      <!-- {/foreach} -->
+      <div class="col-contact">
+        <img src="themes\68ecshopcom_360buy\images\111.jpg" width="120" height="120">
+         <p>微信订阅号</p> </div>
+         <div class="pict">
+      <img src="themes\68ecshopcom_360buy\images\1111.png" width="200" height="140">
+    </div>
+    </div>
+  </div>
+</div>
+{/if}

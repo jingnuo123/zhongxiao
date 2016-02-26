@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+$(document).ready(function(){
+  var a = $("#specialId").children("li");
+  var b = $(".bf-content"); 
+  if($(a).length > 0){ 
+		b.css({"display":"block"});
+
+	} 
+	else{ 
+		b.css({"display":"none"});
+	} 
+});
+</script>
+<div class="bf-content" style="display:none"> 
+  <span class="title"></span>
+ 
+</div>
